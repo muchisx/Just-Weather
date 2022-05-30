@@ -1,0 +1,189 @@
+/*  --------------------------------------------------
+                MUCHISX'S CSS RESET
+ -------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 6.25%;
+    height: fill-available;
+    height: -webkit-fill-available;
+}
+
+body {
+    font-size: 16rem;;
+    height: 100vh;
+    height: fill-available;
+    height: -webkit-fill-available;
+    font-family: "Inter";
+}
+
+/*  --------------------------------------------------
+                MAIN CSS BELOW
+--------------------------------------------------- */
+
+
+
+/*=============================================
+-->                  ROOT                  <--
+=============================================*/
+
+:root {
+
+    --primary-color: rgb(236, 236, 236);
+    --secondary-color: rgb(32, 32, 32);
+    --tertiary-color: rgb(158, 158, 158);
+
+    --glass-border: 1px solid rgba(255, 255, 255, 0.12);
+    --glass-box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.36);
+}
+
+/*=============================================
+-->                  MAIN                  <--
+=============================================*/
+
+
+.main-container {
+    min-width: 320px;
+    height: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.main-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.96;
+    background-image: url('/assets/img/bg-1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+    .weather-cards-container {
+        position: relative;
+    }
+
+        .weather-card {
+            display: grid;
+            grid-template-rows: 1fr 2fr 0.5fr;
+            grid-template-areas: 
+            'header'
+            'body'
+            'footer';
+
+            justify-content: center;
+            align-items: center;
+            min-width: 256px;
+            min-height: 320px;
+            width: 80vw;
+            height: calc(80vw / 4 * 5);
+            max-height: 66vh;
+            overflow: hidden;
+
+            /* Glass Effect */
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 16px;
+            border-top: var(--glass-border);
+            border-left: var(--glass-border);
+            box-shadow: var(--glass-box-shadow);
+        }
+
+            .weather-card__header {
+                display: grid;
+                justify-items: center;
+                grid-area: header / header / header / header;
+                
+            
+            }
+
+                .weather-card__header-visual {
+                    margin: 24px 0 8px;
+                    width: 20vw;
+                    height: 20vw;
+                    max-width: 80px;
+                    max-height: 80px;
+                }
+
+                .weather-card__header-h2 {
+                    font-size: 16rem;
+                    font-weight: 200;
+                    color: var(--primary-color);
+                    text-align: center;
+                }
+
+
+            .weather-card__body {
+                display: grid;
+                grid-area: body / body / body / body;
+                justify-content: center;
+            }
+
+                .weather-card__body-degrees {
+                    text-align: center;
+                    position: relative;
+                    font-weight: 300;
+                    font-size: 80rem;
+                    color: var(--primary-color);
+                    margin-bottom: 20px;
+                }
+
+                    .weather-card__body-degrees sup {
+                        font-weight: 100;
+                        position: absolute;
+                        font-size: 0.4em;
+                        top: 0.2em;
+                        left: -0.4em;
+                    }
+
+                .weather-card__body-h2 {
+                    font-size: 16rem;
+                    line-height: 16rem;
+                    font-weight: 400;
+                    color: var(--primary-color);
+                    text-align: center;
+                    margin-bottom: 4rem;  
+                }
+
+                .weather-card__body-h3 {
+                    font-size: 12rem;
+                    text-align: center;
+                    font-weight: 200;
+                    color: var(--tertiary-color);
+                
+                }
+
+            .weather-card__footer {
+                display: grid;
+                grid-area: footer / footer / footer / footer;
+                justify-content: center;
+            }
+
+                .weather-card__footer-info {
+                    font-weight: 200;
+                    font-size: 12rem;
+                    color: var(--tertiary-color);
+                }
+
+
+/*=============================================
+-->                 EXTRA                  <--
+=============================================*/
+
+.hidden {
+    visibility: hidden;
+    position: absolute;
+}
