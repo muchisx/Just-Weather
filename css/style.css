@@ -52,7 +52,7 @@ body {
     height: 100%;
     display: grid;
     align-items: center;
-    justify-content: center;
+    justify-items: center;
     position: relative;
 }
 

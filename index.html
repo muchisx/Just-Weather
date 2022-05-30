@@ -27,30 +27,40 @@
 
     <main class="main-container">
 
-        <select name="country" id="select-country">
-            <option value="Country">Country</option>
-            
-        </select>
+        <form action="submit" id="form-weather-location">
+  
+            <select name="country" id="select-country">
+                <option value="Select a Country" selected hidden>Select a Country</option>
+            </select>
+            <select name="city" id="select-city">
+                <option value="Select a City" selected hidden>Select a City</option>
+            </select>
+    
+            <button id="button-form-search">
+                Send
+            </button>
+
+         </form>
 
         
-        <section class="weather-cards-container">
+        <section class="weather-cards-container" id="weather-cards-container">
 
-            <article class="weather-card">
+            <article class="weather-card" id="weather-card-0">
 
                 
                 <div class="weather-card__header">
-                    <svg class="weather-card__header-visual">
+                    <svg class="weather-card__header-visual" id="weather-card-headervisual-0">
                         <use xlink:href="#Blur=False, Icon Type=Sunny"></use>
                     </svg>
-                    <h2 class="weather-card__header-h2">Sunny</h2>
+                    <h2 class="weather-card__header-h2" id="weather-card-headerh2-0">Sunny</h2>
                 </div>
 
                 <div class="weather-card__body">
 
-                    <p class="weather-card__body-degrees"><sup>°</sup>26</p>
+                    <p class="weather-card__body-degrees" id="weather-card-degrees-0"><sup>°</sup>26</p>
 
-                    <h2 class="weather-card__body-h2">Medellín</h2>
-                    <h3 class="weather-card__body-h3">Colombia</h3>
+                    <h2 class="weather-card__body-h2" id="weather-card-city-0">Medellín</h2>
+                    <h3 class="weather-card__body-h3" id="weather-card-country-0">Colombia</h3>
                 </div>
           
                 <div class="weather-card__footer">
