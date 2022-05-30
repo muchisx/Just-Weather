@@ -1,35 +1,27 @@
-// ---------------- QUOKKA --------------------------------
+import LOCATIONS from "./locations.js"
 
-({
-    "plugins": ["jsdom-quokka-plugin"],
-    "jsdom": {
-        "file": "/index.html"
-    },
-    "env": {
-        "params": {
-          "runner": "--experimental-fetch"
-        }
-    }
+
+
+const COUNTRIES = LOCATIONS
+                    .map(item => item.country)
+                    .reduce((array, item) => {
+
+                        if (array.indexOf(item) === -1) {
+                            array.push(item)
+                        }
+                        return array
+                    }, [])
+                    .sort((a, b) => a.localeCompare(b))
+
+console.log(COUNTRIES)
+
+
+const MAIN_CONTAINER = document.querySelector('.main-container');
+const SELECT_COUNTRY = MAIN_CONTAINER.querySelector('#select-country')
+
+
+COUNTRIES.forEach(item => {
+
+    let newOption = new Option(item,item);
+    SELECT_COUNTRY.add(newOption, undefined)
 })
-
-// ---------------- QUOKKA --------------------------------
-
-
-
-
-const LOCATIONS = fetch('../locations.json')
-                    .then(res => res.json())
-                    .then(data => {
-
-                        let data2 = Object.values(data)
-                        console.log(typeof data2);
-                        console.log(data2.map(({lat, lng, country, city}) => {
-
-                            return ({lat, lng, country, city})
-                        }))
-                    })
-                    .catch(error => console.error(error));
-
-
-
-
