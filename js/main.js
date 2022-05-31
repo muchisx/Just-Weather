@@ -38,6 +38,13 @@ const updateCityList = () => {
     const CITIES = LOCATIONS
                     .filter(item => item.country == SELECT_COUNTRY.value)
                     .map(item => item.city)
+                    .reduce((array, item) => {
+
+                        if (array.indexOf(item) === -1) {
+                            array.push(item)
+                        }
+                        return array
+                    }, [])
                     .sort((a, b) => a.localeCompare(b))
 
     CITIES.forEach(item => {
@@ -73,16 +80,20 @@ const updateCardTemperature = (weatherData, timeData, country, city) => {
     const WEATHER_CARD_COUNTRY = WEATHER_CARDS_CONTAINER.querySelector('#weather-card-country-0')
     const WEATHER_CARD_FOOTER_INFO = WEATHER_CARDS_CONTAINER.querySelector('#weather-card-footerinfo-0')
 
-    WEATHER_CARD_DEGREES.innerHTML = `<sup>°</sup>${Math.round(weatherData.current_weather.temperature)}`;
+    
+    // WEATHER_CARD_DEGREES.innerHTML = `<sup>°</sup>${Math.round(weatherData.current_weather.temperature)}`;
+    WEATHER_CARD_DEGREES.innerHTML = `<sup>°</sup>${Math.round(weatherData.hourly.temperature_2m[0])}`;
+    
+    let date = new Date(timeData.formatted)
+    .toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+    
+    let weatherCode = weatherData.hourly.weathercode[0];
+    let weatherCodeData = transcodeWeatherCodeToString(weatherCode);
 
-    let date = new Date(timeData.timestamp * 1000);
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-
-    let date2 = new Date(timeData.timestamp * 1000).toTimeString()
-
-    // WEATHER_CARD_FOOTER_INFO.textContent = `${hours}:${minutes}`;
-    WEATHER_CARD_FOOTER_INFO.textContent = `${date2}`;
+    WEATHER_CARD_HEADER_H2.textContent = weatherCodeData[0];
+    WEATHER_CARD_VISUAL.setAttribute('xlink:href', weatherCodeData[1])    
+    
+    WEATHER_CARD_FOOTER_INFO.textContent = date;
 
     WEATHER_CARD_COUNTRY.textContent = country;
     WEATHER_CARD_CITY.textContent = city;
@@ -90,7 +101,27 @@ const updateCardTemperature = (weatherData, timeData, country, city) => {
 
 }
 
+const transcodeWeatherCodeToString = (weatherCode) => {
 
+    let stringifiedCode = [];
+
+    switch (weatherCode) {
+
+        case 0:
+            stringifiedCode = ["Clear sky", "#sunny-svg", "#night-svg"]
+        break;
+
+        case 1: case 2: case 3: 
+            stringifiedCode = ["Mainly clear", "#sunny-svg", "#night-svg"]
+        break;
+    
+        default:
+            
+        break;
+    }
+
+    return stringifiedCode;
+}
 
 
 const getTemperature = async (e) => {
@@ -118,7 +149,6 @@ const getTemperature = async (e) => {
                         .then(data => {
                             console.log(data);
                             return data
-                            // updateCardTemperature(data, country, city)
                         })
 
     let timeData = fetch(`${TIME_API_URL}&lat=${coordinates[0]}&lng=${coordinates[1]}`)
@@ -126,23 +156,15 @@ const getTemperature = async (e) => {
                     .then(data => {
                         console.log(data);
                         return data
-                        // updateCardTemperature(data, country, city)
                     })
     
-    let allData = await Promise.all([weatherData, timeData])
-    
+    let allData = await Promise.all([weatherData, timeData]) 
     updateCardTemperature(allData[0], allData[1], country, city);            
     
 }
 
 
 FORM_WEATHER.addEventListener("submit", getTemperature)
-
-
-
-
-
-
 
 
 
