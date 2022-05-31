@@ -26,22 +26,34 @@ const getTemperatureAndTime = async (e, COUNTRY, CITY, LOCATIONS) => {
         "apparent_temperature",
     ];
 
-    let weatherData = fetch(`${WEATER_API_URL}latitude=${coordinates[0]}&longitude=${coordinates[1]}&hourly=${fields}&current_weather=true`)
+    
+    const countryNotSelected = "Select a Country";
+    const cityNotSelected = "Select a City";
+    
+    if (country == countryNotSelected && city == cityNotSelected) {
+
+        console.error("Must Select both country and city");
+    } else {
+
+        let weatherData = fetch(`${WEATER_API_URL}latitude=${coordinates[0]}&longitude=${coordinates[1]}&hourly=${fields}&current_weather=true`)
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log("Weather", data);
+                                return data
+                            })
+
+        let timeData = fetch(`${TIME_API_URL}&lat=${coordinates[0]}&lng=${coordinates[1]}`)
                         .then(res => res.json())
                         .then(data => {
-                            console.log("Weather", data);
+                            console.log("Time", data);
                             return data
                         })
+        
+        let allData = await Promise.all([weatherData, timeData]) 
+        updateCard(allData[0], allData[1], country, city);         
 
-    let timeData = fetch(`${TIME_API_URL}&lat=${coordinates[0]}&lng=${coordinates[1]}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log("Time", data);
-                        return data
-                    })
-    
-    let allData = await Promise.all([weatherData, timeData]) 
-    updateCard(allData[0], allData[1], country, city);            
+    }
+     
 }
 
 export default getTemperatureAndTime;

@@ -27,20 +27,7 @@
 
     <main class="main-container">
 
-        <form action="submit" id="form-weather-location">
-  
-            <select name="country" id="select-country">
-                <option value="Select a Country" selected hidden>Select a Country</option>
-            </select>
-            <select name="city" id="select-city">
-                <option value="Select a City" selected hidden>Select a City</option>
-            </select>
-    
-            <button id="button-form-search">
-                Send
-            </button>
 
-         </form>
 
         
         <section class="weather-cards-container" id="weather-cards-container">
@@ -70,6 +57,26 @@
             </article>
             
         </section>
+
+        <form action="submit" class="form-weather" id="form-weather-location">
+            
+            <div class="select-wrapper">
+                <select name="country" class="form-weather__select-country" id="select-country">
+                    <option value="Select a Country" selected hidden>Select a Country</option>
+                </select>
+            </div>
+
+            <div class="select-wrapper">
+                <select name="city" disabled="false" class="form-weather__select-city" id="select-city">
+                    <option value="Select a City" selected hidden>Select a City</option>
+                </select>
+            </div>
+    
+            <button class="form-weather__search-button" id="button-form-search">
+                Search
+            </button>
+
+         </form>
 
     </main>
 

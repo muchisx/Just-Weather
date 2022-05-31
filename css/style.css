@@ -4,6 +4,7 @@
 
 * {
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -76,7 +77,80 @@ body {
     background-size: cover;
 }
 
+    .form-weather {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+
+
+        .form-weather__select-country,
+        .form-weather__select-city,
+        .form-weather__search-button {
+            position: relative;
+            font-family: "Inter";
+            border: none;
+            width: 200px;
+            text-overflow: ellipsis;
+            font-size: 14rem;
+            text-align: center;
+            padding: 8px 32px;
+            color: var(--tertiary-color);
+            cursor: pointer;
+            appearance: none;
+
+
+            /* Glass Effect */
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 16px;
+            border-top: var(--glass-border);
+            border-left: var(--glass-border);
+            box-shadow: var(--glass-box-shadow);
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+ 
+        .select-wrapper::after {
+            content: '';
+            pointer-events: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: url('../assets/svg/chevron-down-outline.svg');
+            background-repeat: no-repeat;
+            background-size: 10%;
+            background-position-x: 95%;
+            background-position-y: 50%;
+        }
+
+        .form-weather__select-country option,
+        .form-weather__select-city option {
+            color: var(--secondary-color);
+        }
+
+        .form-weather__select-city:disabled {
+            opacity: 0.6;
+        }
+
+        .form-weather__search-button {
+            font-weight: 300;
+            color: var(--primary-color);
+
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.137), rgba(255, 255, 255, 0.021));
+        }
+
+
     .weather-cards-container {
+        display: flex;
         position: relative;
     }
 

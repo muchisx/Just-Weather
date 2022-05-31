@@ -3,6 +3,7 @@
 const updateCityList = (selectHTMLtag, selectedCountry, LOCATIONS) => {
 
     selectHTMLtag.innerHTML = "";
+    selectHTMLtag.removeAttribute("disabled")
 
     let defaultOption = new Option("Select a City","Select a City")
     selectHTMLtag.add(defaultOption)
