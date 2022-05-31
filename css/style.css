@@ -134,10 +134,11 @@ body {
             .weather-card__body {
                 display: grid;
                 grid-area: body / body / body / body;
-                justify-content: center;
+                justify-items: center;
             }
 
                 .weather-card__body-degrees {
+                    width: fit-content;
                     text-align: center;
                     position: relative;
                     font-weight: 300;
