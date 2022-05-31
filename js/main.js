@@ -38,6 +38,7 @@ const updateCityList = () => {
     const CITIES = LOCATIONS
                     .filter(item => item.country == SELECT_COUNTRY.value)
                     .map(item => item.city)
+                    .sort((a, b) => a.localeCompare(b))
 
     CITIES.forEach(item => {
 
@@ -50,8 +51,10 @@ SELECT_COUNTRY.addEventListener("change", updateCityList)
 
 
 
-const API_KEY = "JJGNGKXG88HZ2tRa7nanQPxGyAoPKtBF";
-const API_URL = "https://data.climacell.co/v4/timelines?apikey=";
+
+const API_URL = "https://api.open-meteo.com/v1/forecast?";
+
+
 
 
 
@@ -68,12 +71,14 @@ const updateCardTemperature = (weatherData, country, city) => {
     const WEATHER_CARD_CITY = WEATHER_CARDS_CONTAINER.querySelector('#weather-card-city-0')
     const WEATHER_CARD_COUNTRY = WEATHER_CARDS_CONTAINER.querySelector('#weather-card-country-0')
 
-    WEATHER_CARD_DEGREES.innerHTML = `<sup>°</sup>${Math.round(weatherData.data.timelines[0].intervals[0].values.temperature)}`;
+    WEATHER_CARD_DEGREES.innerHTML = `<sup>°</sup>${Math.round(weatherData.current_weather.temperature)}`;
 
     WEATHER_CARD_COUNTRY.textContent = country;
     WEATHER_CARD_CITY.textContent = city;
 
 }
+
+
 
 
 const getTemperature = async (e) => {
@@ -90,21 +95,110 @@ const getTemperature = async (e) => {
     console.log(coordinates);
 
     let fields = [
-        "temperature",
-        "weatherCode",
-        "temperatureApparent",
+        "temperature_2m",
+        "weathercode",
+        "apparent_temperature",
     ];
     console.log(`${fields}`);
 
-    let res = await fetch(`${API_URL}${API_KEY}&location=${coordinates}&fields=${fields}`)
+    let res = await fetch(`${API_URL}latitude=${coordinates[0]}&longitude=${coordinates[1]}&hourly=${fields}&current_weather=true`)
                         .then(res => res.json())
-                        .then(data => updateCardTemperature(data, country, city))
-
-
+                        .then(data => {
+                            console.log(data);
+                            updateCardTemperature(data, country, city)
+                        })
 }
 
 
-
-
 FORM_WEATHER.addEventListener("submit", getTemperature)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// tomorrow.io API
+
+
+// const API_KEY = "JJGNGKXG88HZ2tRa7nanQPxGyAoPKtBF";
+// const API_URL = "https://data.climacell.co/v4/timelines?apikey=";
+
+// const WEATHER_CARDS_CONTAINER = document.getElementById('weather-cards-container')
+
+
+// const updateCardTemperature = (weatherData, country, city) => {
+
+//     const WEATHER_CARD = WEATHER_CARDS_CONTAINER.querySelector('#weather-card-0')
+//     const WEATHER_CARD_VISUAL = WEATHER_CARDS_CONTAINER.querySelector('#weather-card-headervisual-0')
+//     const WEATHER_CARD_HEADER_H2 = WEATHER_CARDS_CONTAINER.querySelector('#weather-card-headerh2-0')
+//     const WEATHER_CARD_DEGREES = WEATHER_CARDS_CONTAINER.querySelector('#weather-card-degrees-0')
+//     const WEATHER_CARD_CITY = WEATHER_CARDS_CONTAINER.querySelector('#weather-card-city-0')
+//     const WEATHER_CARD_COUNTRY = WEATHER_CARDS_CONTAINER.querySelector('#weather-card-country-0')
+
+//     WEATHER_CARD_DEGREES.innerHTML = `<sup>°</sup>${Math.round(weatherData.data.timelines[0].intervals[0].values.temperature)}`;
+
+//     WEATHER_CARD_COUNTRY.textContent = country;
+//     WEATHER_CARD_CITY.textContent = city;
+
+// }
+
+
+// const getTemperature = async (e) => {
+    
+//     e.preventDefault();
+
+//     let country = SELECT_COUNTRY.value;
+//     let city = SELECT_CITY.value;
+//     let coordinates = LOCATIONS
+//                         .filter(item => item.country == country && item.city == city)
+//                         .map(({lat, lng}) => ([lat, lng]))
+//                         .flat()
+//     let fields = [
+//         "temperature",
+//         "weatherCode",
+//         "temperatureApparent",
+//     ];
+//     let res = await fetch(`${API_URL}${API_KEY}&location=${coordinates}&fields=${fields}`)
+//                         .then(res => res.json())
+//                         .then(data => updateCardTemperature(data, country, city))
+// }
+
+// FORM_WEATHER.addEventListener("submit", getTemperature)
+
+
+
 
