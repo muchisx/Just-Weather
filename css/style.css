@@ -12,6 +12,8 @@ html {
     font-size: 6.25%;
     height: fill-available;
     height: -webkit-fill-available;
+    min-height: fill-available;
+    min-height: -webkit-fill-available;
 }
 
 body {
