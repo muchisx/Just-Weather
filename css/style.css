@@ -11,18 +11,15 @@
 
 html {
     font-size: 6.25%;
-    height: fill-available;
+    /* height: 100vh; */
+    /* height: fill-available;
+    height: -webkit-fill-available;
     min-height: fill-available;
-    min-height: -webkit-fill-available;
+    min-height: -webkit-fill-available; */
 }
 
 body {
     font-size: 16rem;;
-    height: 100vh;
-    /* height: fill-available; */
-    /* min-height: 100vh; */
-    /* min-height: fill-available; */
-    min-height: -webkit-fill-available;
     font-family: "Inter";
 }
 
@@ -44,6 +41,15 @@ body {
 
     --glass-border: 1px solid rgba(255, 255, 255, 0.12);
     --glass-box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.36);
+
+    --app-height: 100%;
+}
+
+
+html, 
+body {
+    height: 100vh;
+    height: var(--app-height);
 }
 
 /*=============================================
