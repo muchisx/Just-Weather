@@ -1,5 +1,5 @@
 
-const createCountryList = (selectHTMLTag, LOCATIONS) => {
+const createCountryList = (selectCountryElement, LOCATIONS) => {
 
     const COUNTRIES = LOCATIONS
                     .map(item => item.country)
@@ -15,7 +15,7 @@ const createCountryList = (selectHTMLTag, LOCATIONS) => {
     COUNTRIES.forEach(item => {
 
         let newOption = new Option(item,item);
-        selectHTMLTag.add(newOption, undefined)
+        selectCountryElement.add(newOption, undefined)
     })
 };
 

@@ -1,13 +1,12 @@
 
 
-const updateCityList = (selectHTMLtag, selectedCountry, LOCATIONS) => {
+const updateCityList = (selectCityElement, buttonSearchElement, selectedCountry, LOCATIONS) => {
 
-    selectHTMLtag.innerHTML = "";
-    selectHTMLtag.removeAttribute("disabled")
+    selectCityElement.innerHTML = "";
 
     let defaultOption = new Option("Select a City","Select a City")
-    selectHTMLtag.add(defaultOption)
-    selectHTMLtag.options[0].setAttribute("hidden", "hidden")
+    selectCityElement.add(defaultOption)
+    selectCityElement.options[0].setAttribute("hidden", "hidden")
 
     const CITIES = LOCATIONS
                     .filter(item => item.country == selectedCountry)
@@ -24,7 +23,7 @@ const updateCityList = (selectHTMLtag, selectedCountry, LOCATIONS) => {
     CITIES.forEach(item => {
 
         let newOption = new Option(item,item)
-        selectHTMLtag.add(newOption, undefined)
+        selectCityElement.add(newOption, undefined)
     })
 }
 
