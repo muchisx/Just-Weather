@@ -234,12 +234,13 @@ body {
                     }
 
                 .weather-card__body-h2 {
+                    height: fit-content;
                     font-size: 16rem;
-                    line-height: 16rem;
+                    /* line-height: 16rem; */
                     font-weight: 400;
                     color: var(--primary-color);
                     text-align: center;
-                    margin-bottom: 4rem;  
+                    margin-bottom: 4px;  
                 }
 
                 .weather-card__body-h3 {
@@ -257,6 +258,7 @@ body {
             }
 
                 .weather-card__footer-info {
+
                     font-weight: 200;
                     font-size: 12rem;
                     color: var(--tertiary-color);
