@@ -24,7 +24,13 @@ const updateCard = (weatherData, timeData, country, city) => {
     WEATHER_CARD_COUNTRY.textContent = country;
     WEATHER_CARD_CITY.textContent = city;
     
-    let date = new Date(timeData.formatted)
+    let formattedDate = timeData.formatted
+                            // .replaceAll('-', '/')
+                            .replace(' ', 'T')
+    console.log(formattedDate);
+
+
+    let date = new Date(formattedDate)
                 .toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
 
     WEATHER_CARD_FOOTER_INFO.textContent = date;

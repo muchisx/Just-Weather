@@ -28,4 +28,3 @@ SELECT_CITY.addEventListener("change", (e) => {
 });
 
 
-
