@@ -3,8 +3,9 @@ import getTemperatureAndTime from "./getTemperatureAndTime.js";
 import createCountryList from "./createCountryList.js";
 import updateCityList from "./updateCityList.js";
 import updateFormState from "./updateFormState.js";
+import doOnWindowLoad from "./doOnWindowLoad.js";
 
-
+const MAIN_CONTAINER = document.querySelector('#main-container')
 const FORM_WEATHER = document.querySelector('#form-weather-location');
 const SELECT_COUNTRY = FORM_WEATHER.querySelector('#select-country');
 const SELECT_CITY = FORM_WEATHER.querySelector('#select-city');
@@ -28,3 +29,6 @@ SELECT_CITY.addEventListener("change", (e) => {
 });
 
 
+window.addEventListener("load", (e) => {
+    doOnWindowLoad(e, MAIN_CONTAINER);
+});
