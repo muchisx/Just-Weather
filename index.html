@@ -38,7 +38,9 @@
     <link rel="manifest" href="/site.webmanifest" />
 
     <script src="./js/appHeight.js"></script>
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/style.css"/>
+    <link rel="stylesheet" href="./css/tablet.css" media="(min-width: 564px) and (max-width: 1080px)"/>
+
 
     <title>Just Weather</title>
   </head>
@@ -63,7 +65,7 @@
               <svg class="weather-card__header-visual">
                 <use id="weather-card-headervisual-0" xlink:href="#cloudy-svg"></use>
               </svg>
-              <h2 class="weather-card__header-h2" id="weather-card-headerh2-0"></h2>
+              <h2 class="weather-card__header-h2" id="weather-card-headerh2-0">Just Weather.</h2>
             </div>
 
             <div class="weather-card__body">
@@ -98,8 +100,8 @@
 
     <footer></footer>
 
-    <!-- SVG Sprite -->
-    <svg width="0" height="0" class="hidden position-absolute">
+    <!-- SVG Sprite // WEATHER-->
+    <svg width="0" height="0" class="hidden position-absolute" id="svg-sprite-weather">
       <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="cloudy-svg">
         <g filter="url(#filter0_d_12_970)">
           <circle cx="10.5" cy="13" r="10.5" fill="url(#paint0_linear_12_970)"></circle>
@@ -401,21 +403,7 @@
             <stop offset="1" stop-color="#FF9900"></stop>
           </linearGradient>
         </defs>
-      </symbol>
-      <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="15.5 4 15 15" id="warning-svg">
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M23.2059 15.0294C24.4242 15.0294 25.4118 10.7893 25.4118 8.37373C25.4118 5.95819 24.4242 4 23.2059 4C21.9876 4 21 5.95819 21 8.37373C21 10.7893 21.9876 15.0294 23.2059 15.0294ZM23.2059 19C23.9368 19 24.5294 18.4074 24.5294 17.6765C24.5294 16.9455 23.9368 16.3529 23.2059 16.3529C22.4749 16.3529 21.8823 16.9455 21.8823 17.6765C21.8823 18.4074 22.4749 19 23.2059 19Z"
-          fill="url(#paint0_linear_16_103)"
-        ></path>
-        <defs>
-          <linearGradient id="paint0_linear_16_103" x1="20" y1="4" x2="26" y2="19" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#D54941"></stop>
-            <stop offset="1" stop-color="#AB342D"></stop>
-          </linearGradient>
-        </defs>
-      </symbol>
+      </symbol>     
       <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="wind-svg">
         <path
           d="M17 3C17.6566 3 18.3068 3.12933 18.9134 3.3806C19.5201 3.63188 20.0712 4.00017 20.5355 4.46447C20.9998 4.92876 21.3681 5.47996 21.6194 6.08659C21.8707 6.69321 22 7.34339 22 8C22 8.65661 21.8707 9.30679 21.6194 9.91342C21.3681 10.52 20.9998 11.0712 20.5355 11.5355C20.0712 11.9998 19.52 12.3681 18.9134 12.6194C18.3068 12.8707 17.6566 13 17 13H3"
@@ -447,6 +435,24 @@
           <linearGradient id="paint2_linear_102_107" x1="4.15018" y1="25.1333" x2="8.83592" y2="30.4414" gradientUnits="userSpaceOnUse">
             <stop stop-color="white"></stop>
             <stop offset="1" stop-color="#BDE0F5"></stop>
+          </linearGradient>
+        </defs>
+      </symbol>
+    </svg>
+
+    <!-- SVG Sprite // UTILITY-->
+    <svg width="0" height="0" class="hidden position-absolute" id="svg-sprite-utility">
+      <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="15.5 4 15 15" id="warning-svg">
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M23.2059 15.0294C24.4242 15.0294 25.4118 10.7893 25.4118 8.37373C25.4118 5.95819 24.4242 4 23.2059 4C21.9876 4 21 5.95819 21 8.37373C21 10.7893 21.9876 15.0294 23.2059 15.0294ZM23.2059 19C23.9368 19 24.5294 18.4074 24.5294 17.6765C24.5294 16.9455 23.9368 16.3529 23.2059 16.3529C22.4749 16.3529 21.8823 16.9455 21.8823 17.6765C21.8823 18.4074 22.4749 19 23.2059 19Z"
+          fill="url(#paint0_linear_16_103)"
+        ></path>
+        <defs>
+          <linearGradient id="paint0_linear_16_103" x1="20" y1="4" x2="26" y2="19" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#D54941"></stop>
+            <stop offset="1" stop-color="#AB342D"></stop>
           </linearGradient>
         </defs>
       </symbol>

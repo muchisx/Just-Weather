@@ -49,7 +49,7 @@ const transcodeWeatherCodeToString = (weatherCode) => {
         break;
 
         case 95:
-            stringifiedCode = ["Thunderstorm", "#warning-svg", "#night-svg"]
+            stringifiedCode = ["Thunderstorm", "#heavy-rain-svg", "#night-svg"]
         break;
 
         case 96: case 99:
@@ -59,7 +59,7 @@ const transcodeWeatherCodeToString = (weatherCode) => {
         
     
         default:
-            stringifiedCode = ["Unavailable", "#warning-svg", "#night-svg"]
+            stringifiedCode = ["Unavailable", "#warning-svg", "#warning-svg"]
         break;
     }
 

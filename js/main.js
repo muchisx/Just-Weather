@@ -10,6 +10,7 @@ const FORM_WEATHER = document.querySelector('#form-weather-location');
 const SELECT_COUNTRY = FORM_WEATHER.querySelector('#select-country');
 const SELECT_CITY = FORM_WEATHER.querySelector('#select-city');
 const BUTTON_FORM_SEARCH = FORM_WEATHER.querySelector('#button-form-search')
+const SVG_SPRITE_CHILDS = Array.from(document.querySelectorAll('#svg-sprite-weather > symbol'))
 
 FORM_WEATHER.addEventListener("submit", (e) => {
     getTemperatureAndTime(e, SELECT_COUNTRY.value, SELECT_CITY.value, LOCATIONS)
@@ -30,5 +31,9 @@ SELECT_CITY.addEventListener("change", (e) => {
 
 
 window.addEventListener("load", (e) => {
-    doOnWindowLoad(e, MAIN_CONTAINER);
+    doOnWindowLoad(e, MAIN_CONTAINER, SVG_SPRITE_CHILDS);
 });
+
+
+
+
