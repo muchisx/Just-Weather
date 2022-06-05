@@ -49,11 +49,11 @@ const transcodeWeatherCodeToString = (weatherCode) => {
         break;
 
         case 95:
-            stringifiedCode = ["Thunderstorm", "#heavy-rain-svg", "#night-svg"]
+            stringifiedCode = ["Thunderstorm", "#thunderstorm-svg", "#night-svg"]
         break;
 
         case 96: case 99:
-            stringifiedCode = ["Hail Thunderstorm", "#hail-svg", "#night-svg"]
+            stringifiedCode = ["Hail Thunderstorm", "#thunderstorm-svg", "#night-svg"]
         break;
 
         
