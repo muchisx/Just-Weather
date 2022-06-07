@@ -50,7 +50,92 @@ html,
 body {
     height: 100vh;
     height: var(--app-height);
+    min-width: 320px;
 }
+
+body {
+    background-color: rgb(32, 32, 32);
+    position: relative;
+}
+
+/*=============================================
+-->              Form Search               <--
+=============================================*/
+
+.form-search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0 40px;
+    z-index: 1;
+
+}
+
+    .form-search__title {
+        opacity: 0.7;
+        user-select: none;
+        font-size: 20rem;
+        font-weight: bold;
+        color: var(--tertiary-color);
+
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.52);
+    }
+
+    .form-search__results {
+        display: flex;
+        flex-wrap: wrap-reverse;
+        align-content: flex-start;
+        
+        gap: 8px;
+
+        min-height: 300px;
+    }
+
+        .form-search-result {
+            all: unset;
+
+            flex-grow: 1;
+            text-align: center;
+            height: fit-content;
+            
+            padding: 8px 12px;
+            font-size: 16rem;
+            color: var(--tertiary-color);
+            cursor: pointer;
+            user-select: none;
+
+            /* Glass Effect */
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 16px;
+            border-top: var(--glass-border);
+            border-left: var(--glass-border);
+            box-shadow: var(--glass-box-shadow);
+        }
+
+        .form-search-result:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.123), rgba(255, 255, 255, 0));
+        }
+
+        .form-search__input {
+            all: unset;
+            text-align: center;
+
+            padding: 20px;
+            
+            color: var(--tertiary-color);
+
+        }
+
 
 /*=============================================
 -->                  MAIN                  <--
@@ -62,6 +147,7 @@ body {
     justify-content: space-evenly;
     align-items: center;
     padding: 12px;
+    overflow: hidden;
 
 
     position: relative;
@@ -245,7 +331,7 @@ body {
                             border-image: linear-gradient(135deg, #bae0ff8a 30%, #ffd00071 80%) 1;
                         }
 
-    
+
     /*
     -->              Form Weather             <--
     =============================================
@@ -256,6 +342,45 @@ body {
         flex-direction: column;
         gap: 10px;
     }
+
+        /* <-----|    V2    |-----> */
+
+        .form-weather__search-country-button,
+        .form-weather__search-city-button {
+            position: relative;
+            padding: 8px 32px;
+            width: 180px;
+            border: none;
+            overflow: hidden;
+
+
+            color: var(--tertiary-color);
+            font-size: 14rem;
+            font-family: "Inter";
+            text-overflow: ellipsis;
+            text-align: center;
+            white-space: nowrap;
+
+            cursor: pointer;
+            appearance: none;
+
+            /* Glass Effect */
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 16px;
+            border-top: var(--glass-border);
+            border-left: var(--glass-border);
+            box-shadow: var(--glass-box-shadow);
+        }
+
+        .form-weather__search-country-button:hover,
+        .form-weather__search-city-button:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.123), rgba(255, 255, 255, 0));
+        }
+
+        /* <-----|    V1    |-----> */
+
 
         .form-weather__select-country,
         .form-weather__select-city,
@@ -297,6 +422,8 @@ body {
         
         .select-wrapper {
             position: relative;
+            width: fit-content;
+            display: none;
         }
     
         .select-wrapper::after {
@@ -366,13 +493,32 @@ body {
     position: absolute;
 }
 
+.display-none {
+    display: none;
+}
+
+.pointer-events-none {
+    pointer-events: none;
+}
+
 /*
 -->            Animation Classes          <--
 =============================================
 */
 
+
 .fade-in {
     animation: opacity-in 1s ease 0s 1 normal both, forwards;
+}
+.fade-in-x2 {
+    animation: opacity-in 0.5s ease 0s 1 normal both, forwards;
+}
+
+.fade-out {
+    animation: opacity-out 1s ease 0s 1 normal both, forwards;
+}
+.fade-out-x2 {
+    animation: opacity-out 0.5s ease 0s 1 normal both, forwards;
 }
 .fade-in-out {
     animation: opacity-in-out 2.5s ease 0s 1 normal both, forwards;
@@ -381,7 +527,6 @@ body {
 .fade-in-out-0-5s-delay {
     animation: opacity-in-out 2s ease 0.5s 1 normal both, forwards;
 }
-
 
 
 @keyframes opacity-in-out {
@@ -394,3 +539,27 @@ body {
     0% {opacity: 0;}
     100% {opacity: 1;}
 }
+@keyframes opacity-out {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+
+.blur-in {
+    animation: blur-in 0.5s ease 0s 1 normal both, forwards;
+}
+
+.blur-out {
+    animation: blur-out 0.5s ease 0s 1 normal both, forwards;
+}
+
+@keyframes blur-in {
+    0% {filter: blur(0px);}
+    100% {filter: blur(12px);}
+}
+
+@keyframes blur-out {
+    0% {filter: blur(12px);}
+    100% {filter: blur(0px);}
+}
+

@@ -1,3 +1,4 @@
+
 const transcodeWeatherCodeToString = (weatherCode) => {
 
     let stringifiedCode = [];

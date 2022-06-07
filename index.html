@@ -48,7 +48,21 @@
       <nav></nav>
     </header>
 
+    <form action="submit" class="form-search display-none" id="form-search" data-state="country-search">
+
+      <p class="form-search__title" id="form-search-title">Search the Country</p>
+
+      <ul class="form-search__results" id="form-search-results">
+      </ul>
+
+      <input type="text" placeholder="Start Typing..." class="form-search__input" id="form-search-input" autocomplete="off">
+      
+
+    </form>
+
+
     <main class="main-container" id="main-container">
+
       <section class="weather-cards-container" id="weather-cards-container">
         <article class="weather-card-container">
           <div class="weather-card__intro" id="weather-card-intro">
@@ -81,6 +95,16 @@
       </section>
 
       <form action="submit" class="form-weather" id="form-weather-location">
+
+        <button class="form-weather__search-country-button" id="button-form-search-country" value="" type="submit">Search a Country</button>
+        <button class="form-weather__search-city-button" id="button-form-search-city" value="" type="submit">Search a City</button>
+        <!-- <button class="form-weather__search-button2" id="button-form-search2" value="">Search</button> -->
+
+
+
+<!-- 
+
+
         <div class="select-wrapper">
           <select name="country" class="form-weather__select-country" id="select-country">
             <option value="Select a Country" selected hidden>Select a Country</option>
@@ -93,9 +117,13 @@
           </select>
         </div>
 
-        <button class="form-weather__search-button" disabled id="button-form-search">Search</button>
-      </form>
+        <button class="form-weather__search-button" disabled id="button-form-search" value="">Search</button>
+        
+      </form> -->
+
     </main>
+
+    
 
     <footer></footer>
 
@@ -481,6 +509,8 @@
     </svg>
 
     <script src="./js/main.js" type="module"></script>
+    <script src="./js/lib/fuzzysort.min.js"></script>
+
   </body>
 </html>
 

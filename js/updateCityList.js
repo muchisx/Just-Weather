@@ -1,5 +1,4 @@
 
-
 const updateCityList = (selectCityElement, buttonSearchElement, selectedCountry, LOCATIONS) => {
 
     selectCityElement.innerHTML = "";

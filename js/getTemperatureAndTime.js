@@ -1,11 +1,7 @@
 import updateCard from "./updateCard.js";
 
-
 const WEATER_API_URL = "https://api.open-meteo.com/v1/forecast?";
 const TIME_API_URL = "https://api.timezonedb.com/v2.1/get-time-zone?key=840VC3BU9NL1&format=json&by=position"
-
-
-
 
 const getTemperatureAndTime = async (e, COUNTRY, CITY, LOCATIONS) => {
     
