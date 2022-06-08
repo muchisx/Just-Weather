@@ -1,8 +1,6 @@
 
 const createCountryList = (LOCATIONS) => {
 
-
-
     const COUNTRIES = LOCATIONS
                     .map(item => item.country)
                     .reduce((array, item) => {
@@ -15,8 +13,6 @@ const createCountryList = (LOCATIONS) => {
     ;   
 
     return COUNTRIES;
-
-
 };
 
 export default createCountryList;

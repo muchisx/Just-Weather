@@ -13,8 +13,6 @@ const getTemperatureAndTime = async (e, APP, COUNTRY, CITY, LOCATIONS) => {
     APP.BUTTON_GPS.setAttribute('disabled', 'disabled')
     APP.BUTTON_REFRESH.setAttribute('disabled', 'disabled')
     APP.BUTTON_RANDOM.setAttribute('disabled', 'disabled')
-    
-
 
     let country = COUNTRY;
     let city = CITY;
@@ -44,13 +42,11 @@ const getTemperatureAndTime = async (e, APP, COUNTRY, CITY, LOCATIONS) => {
                             console.log("Time", data);
                             return data
         });
-        
-                    
+                           
         await returnAnimationsPromises(APP.WEATHER_CARD);
         
         let allData = await Promise.all([weatherData, timeData]);
         updateCard(allData[0], allData[1], country, city);
-
 
         APP.WEATHER_CARD.classList.remove('fade-out-x3');
         APP.WEATHER_CARD.classList.add('fade-in');
@@ -69,10 +65,6 @@ const getTemperatureAndTime = async (e, APP, COUNTRY, CITY, LOCATIONS) => {
         APP.BUTTON_REFRESH.removeAttribute('disabled')
         APP.BUTTON_RANDOM.removeAttribute('disabled')
     }
-
-
-    
-
 }
 
 export default getTemperatureAndTime;

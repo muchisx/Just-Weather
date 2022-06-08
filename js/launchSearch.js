@@ -20,7 +20,6 @@ const launchSearch = (
             APP.FORM_SEARCH.classList.toggle(('fade-in-x2'))
     })
 
-
     if (submitterId == 'button-form-search-country') {
         
         formState = 'country-search'
@@ -33,9 +32,7 @@ const launchSearch = (
         formState = 'city-search'
         resetForm(APP, formState, savedSelections)
         progressForm(APP, selection, formState, savedSelections);
-
     }
-
 }
 
 export default launchSearch;

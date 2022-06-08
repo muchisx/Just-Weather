@@ -4,10 +4,12 @@ const returnSelection = (e) => {
     return e.submitter.innerText
 }    
 
+
 const returnFormState = (e, APP) => {
 
     return APP.FORM_SEARCH.dataset.state
 }
+
 
 const returnAnimationsPromises = (...animatedElements) => {
 
@@ -20,7 +22,6 @@ const returnAnimationsPromises = (...animatedElements) => {
                         .map((animation) => animation.finished);
     }
 
-    // return promises;
     return Promise.all(...promises);
 }
 

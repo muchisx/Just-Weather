@@ -33,8 +33,6 @@ const resetForm = (
 
     savedSelections.city = "";
     }
-
-    
 }
 
 export default resetForm;

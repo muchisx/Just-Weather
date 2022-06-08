@@ -9,7 +9,6 @@ const progressForm = (
     formState, 
     savedSelections) => {
 
-    
     if (formState == 'country-search') {
 
         APP.FORM_SEARCH.setAttribute('data-state', 'city-search')
@@ -52,7 +51,6 @@ const progressForm = (
     if (formState == 'done-search') {
 
         getTemperatureAndTime(e, APP, savedSelections.country, savedSelections.city, LOCATIONS);
-
 
         APP.BUTTON_SEARCH_COUNTRY.classList.remove('--search-location-state');
         APP.BUTTON_SEARCH_COUNTRY.innerText = savedSelections.country;

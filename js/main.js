@@ -1,8 +1,5 @@
 import LOCATIONS from "./locations.js";
-import getTemperatureAndTime from "./getTemperatureAndTime.js";
 import createCountryList from "./createCountryList.js";
-import updateCityList from "./updateCityList.js";
-import updateFormState from "./updateFormState.js";
 import doOnWindowLoad from "./doOnWindowLoad.js";
 import searchLocationsList from "./searchLocationsList.js";
 import progressForm from "./progressForm.js";
@@ -11,7 +8,6 @@ import {returnFormState, returnSelection, returnAnimationsPromises} from "./util
 import navigateFormSearch from "./navigateFormSearch.js";
 import getTemperatureAndTimeByGPS from "./getTemperatureAndTimeByGPS.js";
 import refreshTemperatureAndTime from "./refreshTemperatureAndTime.js";
-import createCityList from "./createCityList.js";
 import launchRandomSearch from "./launchRandomSearch.js";
 
 
@@ -68,6 +64,7 @@ const GEO = navigator.geolocation.getCurrentPosition((e) => {
     console.log(e);
     return e
 })
+
 let formState = APP.FORM_SEARCH.dataset.state;
 let selection = "";
 let savedSelections = {};
