@@ -25,9 +25,7 @@ const progressForm = (
         APP.FORM_SEARCH_NAV_INFO.classList.remove('display-none')
         APP.FORM_SEARCH_NAV_INFO.classList.add('half-fade-in-x2')
 
-
         return savedSelections
-
     }
 
     if (formState == 'city-search') {
@@ -39,8 +37,6 @@ const progressForm = (
 
         let buttonTag = document.createElement('button');
         buttonTag.classList.add('form-search-result', 'fade-in', '--result-start-search');
-        
-        // buttonTag.innerText = ""
 
         APP.FORM_SEARCH_UL.append(buttonTag)
 
@@ -49,7 +45,6 @@ const progressForm = (
         APP.FORM_SEARCH_NAV_INFO_CITY.innerText = savedSelections.city;
         APP.FORM_SEARCH_NAV_INFO_CITY.classList.remove('display-none')
         APP.FORM_SEARCH_NAV_INFO_CITY.classList.add('half-fade-in-x2')
-
 
         return savedSelections
     }
@@ -68,13 +63,9 @@ const progressForm = (
 
         APP.BUTTON_REFRESH.classList.add('--search-refresh-area')
         APP.BUTTON_REFRESH.removeAttribute('disabled')
-
-
+        APP.BUTTON_REFRESH.setAttribute('data-for', 'form')
 
         exitFormSearch(APP, savedSelections);
-
-        
-
 
         return savedSelections
     }

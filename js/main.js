@@ -9,6 +9,8 @@ import progressForm from "./progressForm.js";
 import launchSearch from "./launchSearch.js";
 import {returnFormState, returnSelection, returnAnimationsPromises} from "./utilities.js"
 import navigateFormSearch from "./navigateFormSearch.js";
+import getTemperatureAndTimeByGPS from "./getTemperatureAndTimeByGPS.js";
+import refreshTemperatureAndTime from "./refreshTemperatureAndTime.js";
 
 
 const MAIN_CONTAINER = document.querySelector('#main-container')
@@ -54,6 +56,10 @@ window.addEventListener("load", (e) => {
 
 
 const COUNTRIES = createCountryList(LOCATIONS)
+const GEO = navigator.geolocation.getCurrentPosition((e) => {
+    console.log(e);
+    return e
+})
 let formState = APP.FORM_SEARCH.dataset.state;
 let selection = "";
 let savedSelections = {};
@@ -85,7 +91,11 @@ FORM_SEARCH_INPUT.addEventListener('input', (e) => {
 FORM_WEATHER.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    if (e.submitter.dataset.form == 'search-refresh') getTemperatureAndTime(e, savedSelections.country, savedSelections.city, LOCATIONS)
+    if (e.submitter.dataset.form == 'search-GPS') getTemperatureAndTimeByGPS(e, APP)
 
-    if (e.submitter.dataset.form == 'search-location') launchSearch(e.submitter.id, APP, selection, formState, savedSelections)
+    if (e.submitter.dataset.form == 'search-refresh') refreshTemperatureAndTime(e, APP, savedSelections, LOCATIONS)
+
+    if (e.submitter.dataset.form == 'search-location') launchSearch(e.submitter.id, APP, selection, formState, savedSelections);
 })
+
+
