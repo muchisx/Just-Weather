@@ -11,11 +11,6 @@
 
 html {
     font-size: 6.25%;
-    /* height: 100vh; */
-    /* height: fill-available;
-    height: -webkit-fill-available;
-    min-height: fill-available;
-    min-height: -webkit-fill-available; */
 }
 
 body {
@@ -59,6 +54,22 @@ body {
 }
 
 /*=============================================
+-->         Base - Utility Classes          <--
+=============================================*/
+
+.glass-effect {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 16px;
+    border-top: var(--glass-border);
+    border-left: var(--glass-border);
+    border-bottom: none;
+    border-right: none;
+    box-shadow: var(--glass-box-shadow);
+}
+
+/*=============================================
 -->              Form Search               <--
 =============================================*/
 
@@ -68,15 +79,16 @@ body {
     justify-content: center;
     align-items: center;
     gap: 4px;
-
+    
     position: absolute;
+    max-width: 480px;
+    margin: auto;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     padding: 0 40px;
     z-index: 1;
-
 }
 
     .form-search__title {
@@ -96,7 +108,8 @@ body {
         
         gap: 8px;
 
-        min-height: 300px;
+        min-height: 190px;
+        
     }
 
         .form-search-result {
@@ -106,6 +119,7 @@ body {
             text-align: center;
             height: fit-content;
             
+            position: relative;
             padding: 8px 12px;
             font-size: 16rem;
             color: var(--tertiary-color);
@@ -122,6 +136,25 @@ body {
             box-shadow: var(--glass-box-shadow);
         }
 
+        .--result-start-search {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;        
+        }
+
+        .--result-start-search::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('../assets/svg/chevrons-right.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 50px;
+        }
+
         .form-search-result:hover {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.123), rgba(255, 255, 255, 0));
         }
@@ -133,8 +166,70 @@ body {
             padding: 20px;
             
             color: var(--tertiary-color);
-
         }
+
+        .form-search__navigation {
+            display: flex;
+            width: 100%;
+            gap: 8px;
+            align-items: center;
+            justify-content: space-between; 
+        }
+
+            .form-search__navigation-back,
+            .form-search__navigation-close {
+                flex-shrink: 0;
+                position: relative;
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.36);
+                cursor: pointer;
+            }
+
+            .form-search__navigation-back::before,
+            .form-search__navigation-close::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-repeat: no-repeat;
+                background-position-y: 58%;
+                background-position-x: 48%;
+                background-size: 16px;
+            }
+
+            .form-search__navigation-back::before {
+                background-image: url('../assets/svg/chevron-down-outline.svg');
+                background-position-y: 58%;
+                background-position-x: 48%;
+                transform: rotate(90deg);
+            }
+
+            .form-search__navigation-info {
+                height: 34px;
+                padding: 8px 12px;
+                
+                font-size: 16rem;
+                line-height: 16px;
+                color: var(--tertiary-color);
+                text-align: center;
+
+                opacity: 0.44;
+                pointer-events: none;
+                user-select: none;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+
+            .form-search__navigation-close::before {
+                background-image: url('../assets/svg/x.svg');
+                background-position-y: 52%;
+                background-position-x: 46%;
+            }
 
 
 /*=============================================
@@ -186,7 +281,7 @@ body {
             border-radius: 16px;
             margin-bottom: 12px;
 
-                        /* Glass Effect */
+            /* Glass Effect */
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
@@ -220,7 +315,6 @@ body {
                 }
 
                 .weather-card__intro-title {
-                    /* position: absolute; */
                     font-size: clamp(20rem, 6vw, 32rem);
                     font-weight: 700;
                     color: var(--primary-color);
@@ -231,7 +325,6 @@ body {
             .weather-card {
                 display: flex;
                 flex-direction: column;
-                /* justify-content: space-between; */
                 align-items: center;
 
                 padding: 16px;
@@ -267,7 +360,6 @@ body {
                     display: grid;
                     justify-items: center;
                     margin: auto 0;
-                    /* margin-bottom: 16px; */
                 }
 
                     .weather-card__body-degrees {
@@ -288,6 +380,7 @@ body {
                             font-size: 0.4em;
                         }
 
+
                     .weather-card__body-h2 {
                         height: fit-content;
                         text-align: center;
@@ -303,6 +396,7 @@ body {
                         font-weight: 200;
                         color: var(--tertiary-color);
                     }
+
 
                 .weather-card__footer {
                     margin-top: auto;
@@ -343,8 +437,6 @@ body {
         gap: 10px;
     }
 
-        /* <-----|    V2    |-----> */
-
         .form-weather__search-country-button,
         .form-weather__search-city-button {
             position: relative;
@@ -352,7 +444,6 @@ body {
             width: 180px;
             border: none;
             overflow: hidden;
-
 
             color: var(--tertiary-color);
             font-size: 14rem;
@@ -374,98 +465,46 @@ body {
             box-shadow: var(--glass-box-shadow);
         }
 
-        .form-weather__search-country-button:hover,
-        .form-weather__search-city-button:hover {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.123), rgba(255, 255, 255, 0));
+        .--search-location-state {
+            width: 120px;
+            padding: 8px 0px 8px 20px;
         }
 
-        /* <-----|    V1    |-----> */
-
-
-        .form-weather__select-country,
-        .form-weather__select-city,
-        .form-weather__search-button {
-            position: relative;
-            padding: 8px 32px;
-            width: 200px;
-            border: none;
-            font-family: "Inter";
-            text-overflow: ellipsis;
-            font-size: 14rem;
-            text-align: center;
-            color: var(--tertiary-color);
-            cursor: pointer;
-            appearance: none;
-
-
-            /* Glass Effect */
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-radius: 16px;
-            border-top: var(--glass-border);
-            border-left: var(--glass-border);
-            box-shadow: var(--glass-box-shadow);
-        }
-        
-        .form-weather__search-button {
-            font-weight: 300;
-            color: var(--primary-color);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.137), rgba(255, 255, 255, 0.021));
-        }
-
-        .form-weather__select-country:hover,
-        .form-weather__select-city:hover,
-        .form-weather__search-button:hover {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.123), rgba(255, 255, 255, 0));
-        }
-        
-        .select-wrapper {
-            position: relative;
-            width: fit-content;
-            display: none;
-        }
-    
-        .select-wrapper::after {
+        .--search-location-state::after {
             content: '';
             position: absolute;
             top: 0;
             right: 0;
             bottom: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background-image: url('../assets/svg/chevron-down-outline.svg');
+            background-image: url('../assets/svg/search.svg');
             background-repeat: no-repeat;
-            background-size: 10%;
-            background-position-x: 95%;
-            background-position-y: 50%;
+            background-size: 16px;
+            background-position-y: center;
+            background-position-x: 16%;
         }
 
-        .form-weather__select-country option,
-        .form-weather__select-city option {
-            color: var(--secondary-color);
+        .form-weather__search-country-button:hover,
+        .form-weather__search-city-button:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.123), rgba(255, 255, 255, 0));
         }
 
-        .form-weather__select-city:disabled,
-        .form-weather__search-button:disabled {
+        .form-weather__search-country-button:disabled,
+        .form-weather__search-city-button:disabled {
             opacity: 0.2;
             pointer-events: none;
             user-select: none;
         }
 
 
-
         /* firefox fallback for glass blurr */
         @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-            .weather-card,
-            .form-weather__select-country,
-            .form-weather__select-city {
+            .weather-card {
                 background: linear-gradient(135deg, rgba(255, 255, 255, 0.20), rgba(31, 31, 31, 0.726));
             }
 
-            .form-weather__search-button {
+            .form-weather__search-country-button,
+            .form-weather__search-city-button {
                 background: linear-gradient(135deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.021));
             }
         }
@@ -477,7 +516,7 @@ body {
 
 
 /*
--->            Utility Classes          <--
+-->      Override - Utility Classes       <--
 =============================================
 */
 

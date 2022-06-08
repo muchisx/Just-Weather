@@ -56,6 +56,16 @@
       </ul>
 
       <input type="text" placeholder="Start Typing..." class="form-search__input" id="form-search-input" autocomplete="off">
+
+      <nav class="form-search__navigation" id="form-search-navigation">
+        <button class="form-search__navigation-back glass-effect" type="submit" data-form="navigation" id="navigation-back"></button>
+        <p class="form-search__navigation-info glass-effect display-none" id="navigation-info">Colombia</p>
+        <p class="form-search__navigation-info glass-effect display-none" id="navigation-info-city">Medellín</p>
+        <button class="form-search__navigation-close glass-effect" type="submit" data-form="navigation" id="navigation-close"></button>
+      </nav>
+
+
+      
       
 
     </form>
@@ -78,13 +88,13 @@
               <svg class="weather-card__header-visual">
                 <use id="weather-card-headervisual-0" xlink:href="#cloudy-svg"></use>
               </svg>
-              <h2 class="weather-card__header-h2" id="weather-card-headerh2-0">Just Weather.</h2>
+              <h2 class="weather-card__header-h2" id="weather-card-headerh2-0"></h2>
             </div>
 
             <div class="weather-card__body">
               <p class="weather-card__body-degrees" id="weather-card-degrees-0">Hi</p>
               <h2 class="weather-card__body-h2" id="weather-card-city-0">Welcome</h2>
-              <h3 class="weather-card__body-h3" id="weather-card-country-0">Check the weather below</h3>
+              <h3 class="weather-card__body-h3" id="weather-card-country-0">Search a place below</h3>
             </div>
 
             <div class="weather-card__footer">
@@ -96,30 +106,10 @@
 
       <form action="submit" class="form-weather" id="form-weather-location">
 
-        <button class="form-weather__search-country-button" id="button-form-search-country" value="" type="submit">Search a Country</button>
-        <button class="form-weather__search-city-button" id="button-form-search-city" value="" type="submit">Search a City</button>
-        <!-- <button class="form-weather__search-button2" id="button-form-search2" value="">Search</button> -->
+        <button class="form-weather__search-country-button --search-location-state" id="button-form-search-country" value="" type="submit">Location</button>
+        <button class="form-weather__search-city-button display-none" disabled id="button-form-search-city" value="" type="submit">City</button>
 
-
-
-<!-- 
-
-
-        <div class="select-wrapper">
-          <select name="country" class="form-weather__select-country" id="select-country">
-            <option value="Select a Country" selected hidden>Select a Country</option>
-          </select>
-        </div>
-
-        <div class="select-wrapper">
-          <select name="city" disabled class="form-weather__select-city" id="select-city">
-            <option value="Select a City" selected hidden>Select a City</option>
-          </select>
-        </div>
-
-        <button class="form-weather__search-button" disabled id="button-form-search" value="">Search</button>
-        
-      </form> -->
+      </form> 
 
     </main>
 

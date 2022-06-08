@@ -1,30 +1,34 @@
 
 const resetForm = (
-    FORM_SEARCH, 
-    FORM_SEARCH_TITLE, 
-    FORM_SEARCH_UL, 
-    FORM_SEARCH_INPUT,
+    APP,
     TargetformState,
     savedSelections) => {
 
     if (TargetformState == 'country-search') {
 
-    FORM_SEARCH.dataset.state = TargetformState;
-    FORM_SEARCH_TITLE.innerText = 'Search the Country';
-    FORM_SEARCH_UL.innerHTML = "";
-    FORM_SEARCH_INPUT.value = "";
-    FORM_SEARCH_INPUT.classList.remove('hidden');
-    savedSelections = {}
+    APP.FORM_SEARCH.dataset.state = TargetformState;
+    APP.FORM_SEARCH_TITLE.innerText = 'Search the Country';
+    APP.FORM_SEARCH_UL.innerHTML = "";
+    APP.FORM_SEARCH_INPUT.value = "";
+    APP.FORM_SEARCH_INPUT.classList.remove('hidden');
+    APP.FORM_SEARCH_NAV_INFO.innerText = "";
+    APP.FORM_SEARCH_NAV_INFO.classList.add('display-none');
+    APP.FORM_SEARCH_NAV_INFO_CITY.innerText = "";
+    APP.FORM_SEARCH_NAV_INFO_CITY.classList.add('display-none');
 
+    savedSelections = {}
     }
 
     if (TargetformState == 'city-search') {
 
-    FORM_SEARCH.dataset.state = TargetformState;
-    FORM_SEARCH_TITLE.innerText = 'Search the City';
-    FORM_SEARCH_UL.innerHTML = "";
-    FORM_SEARCH_INPUT.value = "";
-    FORM_SEARCH_INPUT.classList.remove('hidden');
+    APP.FORM_SEARCH.dataset.state = TargetformState;
+    APP.FORM_SEARCH_TITLE.innerText = 'Search the City';
+    APP.FORM_SEARCH_UL.innerHTML = "";
+    APP.FORM_SEARCH_INPUT.value = "";
+    APP.FORM_SEARCH_INPUT.classList.remove('hidden');
+    APP.FORM_SEARCH_NAV_INFO_CITY.innerText = "";
+    APP.FORM_SEARCH_NAV_INFO_CITY.classList.add('display-none');
+
     savedSelections.city = "";
     }
 

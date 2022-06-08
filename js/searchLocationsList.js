@@ -1,26 +1,31 @@
 import createCityList from "./createCityList.js";
 
-const searchLocationsList = (inputElement, ulElement, COUNTRIES, LOCATIONS, formState, savedSelections) => {
+const searchLocationsList = (
+    APP, 
+    COUNTRIES, 
+    LOCATIONS, 
+    formState, 
+    savedSelections) => {
 
-    ulElement.innerHTML = "";
+    APP.FORM_SEARCH_UL.innerHTML = "";
 
-    let userInput = inputElement.value
+    let userInput = APP.FORM_SEARCH_INPUT.value
 
     if (formState == 'country-search') {
 
-        const result = fuzzysort.go(userInput, COUNTRIES, {limit: 6, treshold: -10000})
+        const result = fuzzysort.go(userInput, COUNTRIES, {limit: 3, treshold: -10000})
                         .map(item => item.target)
                         ;
 
         let buttonNodes = [];
 
         result.forEach((item) => {
-        let buttonTag = document.createElement('button');
-        buttonTag.classList.add('form-search-result', 'fade-in');
-        buttonTag.innerText = item;
+            let buttonTag = document.createElement('button');
+            buttonTag.classList.add('form-search-result', 'fade-in');
+            buttonTag.innerText = item;
 
-        buttonNodes.push(buttonTag)
-        ulElement.append(buttonTag)
+            buttonNodes.push(buttonTag)
+            APP.FORM_SEARCH_UL.append(buttonTag)
         })
     }
     
@@ -30,7 +35,7 @@ const searchLocationsList = (inputElement, ulElement, COUNTRIES, LOCATIONS, form
 
         const CITIES = createCityList(LOCATIONS, country)
 
-        const result = fuzzysort.go(userInput, CITIES, {limit: 6, treshold: -10000})
+        const result = fuzzysort.go(userInput, CITIES, {limit: 3, treshold: -10000})
                         .map(item => item.target)
         ;
 
@@ -43,7 +48,7 @@ const searchLocationsList = (inputElement, ulElement, COUNTRIES, LOCATIONS, form
             buttonTag.innerText = item;
 
             buttonNodes.push(buttonTag)
-            ulElement.append(buttonTag)
+            APP.FORM_SEARCH_UL.append(buttonTag)
         })
     }
 };

@@ -1,19 +1,27 @@
 
 const returnSelection = (e) => {
 
-    console.log(e);
-    console.log(e.submitter);
-    console.log('selection - ', e.submitter.innerText);
-
     return e.submitter.innerText
 }    
 
-const returnFormState = (e, FORM_SEARCH) => {
+const returnFormState = (e, APP) => {
 
-    console.log('form state -', FORM_SEARCH.dataset.state);
-
-    return FORM_SEARCH.dataset.state
+    return APP.FORM_SEARCH.dataset.state
 }
 
+const returnAnimationsPromises = (...animatedElements) => {
 
-export {returnFormState, returnSelection}
+    let promises = [];
+
+    for (let i = 0; i < animatedElements.length; i++) {
+
+        promises[i] = animatedElements[i]
+                        .getAnimations()
+                        .map((animation) => animation.finished);
+    }
+
+    // return promises;
+    return Promise.all(...promises);
+}
+
+export {returnFormState, returnSelection, returnAnimationsPromises}

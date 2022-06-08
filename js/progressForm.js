@@ -1,14 +1,10 @@
-import returnAnimationsPromises from "./returnAnimationsPromises.js";
 import getTemperatureAndTime from "./getTemperatureAndTime.js";
+import exitFormSearch from "./exitFormSearch.js";
 
 const progressForm = (
     e, 
+    APP,
     LOCATIONS, 
-    MAIN_CONTAINER, 
-    FORM_SEARCH, 
-    FORM_SEARCH_TITLE, 
-    FORM_SEARCH_UL, 
-    FORM_SEARCH_INPUT, 
     selection, 
     formState, 
     savedSelections) => {
@@ -16,14 +12,18 @@ const progressForm = (
     
     if (formState == 'country-search') {
 
-        FORM_SEARCH.setAttribute('data-state', 'city-search')
-        FORM_SEARCH_INPUT.classList.remove('hidden');
-        FORM_SEARCH_TITLE.innerText = "Search the City"
-        FORM_SEARCH_UL.innerHTML = "";
-        FORM_SEARCH_INPUT.value = "";
-        FORM_SEARCH_INPUT.focus();
-
+        APP.FORM_SEARCH.setAttribute('data-state', 'city-search')
+        APP.FORM_SEARCH_INPUT.classList.remove('hidden');
+        APP.FORM_SEARCH_TITLE.innerText = "Search the City"
+        APP.FORM_SEARCH_UL.innerHTML = "";
+        APP.FORM_SEARCH_INPUT.value = "";
+        APP.FORM_SEARCH_INPUT.focus();
+        
         savedSelections.country = selection
+
+        APP.FORM_SEARCH_NAV_INFO.innerText = savedSelections.country;
+        APP.FORM_SEARCH_NAV_INFO.classList.remove('display-none')
+
 
         return savedSelections
 
@@ -31,42 +31,31 @@ const progressForm = (
 
     if (formState == 'city-search') {
 
-        console.log('prog for city search');
-
-        FORM_SEARCH.setAttribute('data-state', 'done-search')
-        FORM_SEARCH_TITLE.innerText = "Let's Go!"
-        FORM_SEARCH_UL.innerHTML = "";
-        FORM_SEARCH_INPUT.classList.toggle('hidden')
+        APP.FORM_SEARCH.setAttribute('data-state', 'done-search')
+        APP.FORM_SEARCH_TITLE.innerText = "Let's Search!"
+        APP.FORM_SEARCH_UL.innerHTML = "";
+        APP.FORM_SEARCH_INPUT.classList.toggle('hidden')
 
         let buttonTag = document.createElement('button');
-        buttonTag.classList.add('form-search-result');
-        buttonTag.classList.add('fade-in');
-        buttonTag.innerText = "Search"
+        buttonTag.classList.add('form-search-result', 'fade-in', '--result-start-search');
+        
+        // buttonTag.innerText = ""
 
-        FORM_SEARCH_UL.append(buttonTag)
+        APP.FORM_SEARCH_UL.append(buttonTag)
 
         savedSelections.city = selection
+
+        APP.FORM_SEARCH_NAV_INFO_CITY.innerText = savedSelections.city;
+        APP.FORM_SEARCH_NAV_INFO_CITY.classList.remove('display-none')
 
         return savedSelections
     }
 
     if (formState == 'done-search') {
 
-        getTemperatureAndTime(e, savedSelections.country, savedSelections.city, LOCATIONS)
+        getTemperatureAndTime(e, savedSelections.country, savedSelections.city, LOCATIONS);
 
-        FORM_SEARCH.classList.toggle('fade-out-x2')
-            
-        MAIN_CONTAINER.classList.add('blur-out')
-        MAIN_CONTAINER.classList.remove('blur-in')
-        MAIN_CONTAINER.classList.remove('pointer-events-none')
-
-        returnAnimationsPromises(FORM_SEARCH, MAIN_CONTAINER)
-        .then(() => {
-            MAIN_CONTAINER.classList.toggle('blur-out')
-            FORM_SEARCH.classList.toggle('display-none')
-            FORM_SEARCH.classList.toggle('fade-out-x2')
-
-        })
+        exitFormSearch(APP, savedSelections);
 
 
         return savedSelections

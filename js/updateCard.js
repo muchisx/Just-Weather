@@ -18,16 +18,13 @@ const updateCard = (weatherData, timeData, country, city) => {
     WEATHER_CARD_VISUAL.setAttribute('xlink:href', weatherCodeData[1]);
     WEATHER_CARD_HEADER_H2.textContent = weatherCodeData[0];
     
-    // WEATHER_CARD_DEGREES.innerHTML = `<sup>°</sup>${Math.round(weatherData.current_weather.temperature)}`;
     WEATHER_CARD_DEGREES.innerHTML = `<sup>°</sup>${Math.round(weatherData.hourly.temperature_2m[0])}`;
     
     WEATHER_CARD_COUNTRY.textContent = country;
     WEATHER_CARD_CITY.textContent = city;
     
     let formattedDate = timeData.formatted
-                            // .replaceAll('-', '/')
-                            .replace(' ', 'T')
-    console.log(formattedDate);
+                            .replace(' ', 'T');
 
 
     let date = new Date(formattedDate)

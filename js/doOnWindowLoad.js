@@ -1,9 +1,9 @@
-import returnAnimationsPromises from "./returnAnimationsPromises.js";
+import {returnAnimationsPromises} from "./utilities.js";
 
-const doOnWindowLoad = async (e, mainContainerElement, svgSpriteChildsArray) => {
+const doOnWindowLoad = async (e, APP) => {
 
-    // const MAIN_CONTAINER = document.getElementById("main-container")
-    const MAIN_CONTAINER = mainContainerElement;
+    const MAIN_CONTAINER = APP.MAIN_CONTAINER;
+    const SVG_SPRITE_CHILDS_ARRAY = APP.SVG_SPRITE_CHILDS
 
     const WEATHER_CARD_INTRO = MAIN_CONTAINER.querySelector('#weather-card-intro');
     const WEATHER_CARD = MAIN_CONTAINER.querySelector('#weather-card-0');
@@ -22,27 +22,8 @@ const doOnWindowLoad = async (e, mainContainerElement, svgSpriteChildsArray) => 
                     WEATHER_CARD.classList.add('fade-in');              
     });
 
-
-    // let visualAnimation = WEATHER_CARD_INTRO_VISUAL
-    //                         .getAnimations()
-    //                         .map((animation) => animation.finished);
-
-    // let titleAnimation = WEATHER_CARD_INTRO_TITLE
-    //                         .getAnimations()
-    //                         .map((animation) => animation.finished);
-
-    // await Promise.all(visualAnimation, titleAnimation)
-    //         .then(() => {
-    //             WEATHER_CARD_INTRO.remove();
-    //             WEATHER_CARD.classList.remove('hidden-children');
-    //             WEATHER_CARD.classList.add('fade-in');              
-    // });
-
-
-
-    const selector = Math.floor(Math.random()*svgSpriteChildsArray.length);
-    WEATHER_CARD_VISUAL.setAttribute('xlink:href', `#${svgSpriteChildsArray[selector].id}`);            
-
+    const selector = Math.floor(Math.random()*SVG_SPRITE_CHILDS_ARRAY.length);
+    WEATHER_CARD_VISUAL.setAttribute('xlink:href', `#${SVG_SPRITE_CHILDS_ARRAY[selector].id}`);            
 }
 
 export default doOnWindowLoad;
