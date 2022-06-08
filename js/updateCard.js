@@ -1,6 +1,7 @@
 import transcodeWeatherCodeToString from "./transcodeWeatherCodeToString.js"
+import { returnAnimationsPromises } from "./utilities.js"
 
-const updateCard = (weatherData, timeData, country, city) => {
+const updateCard = async (weatherData, timeData, country, city) => {
     
     const WEATHER_CARDS_CONTAINER = document.getElementById('weather-cards-container')
     const WEATHER_CARD = WEATHER_CARDS_CONTAINER.querySelector('#weather-card-0')
@@ -11,7 +12,14 @@ const updateCard = (weatherData, timeData, country, city) => {
     const WEATHER_CARD_COUNTRY = WEATHER_CARDS_CONTAINER.querySelector('#weather-card-country-0')
     const WEATHER_CARD_FOOTER_INFO = WEATHER_CARDS_CONTAINER.querySelector('#weather-card-footerinfo-0')
     
-    
+    // WEATHER_CARD.classList.add('fade-out')
+
+    // returnAnimationsPromises(WEATHER_CARD)
+    //     .then(e => {
+
+            
+    //     })
+
     let weatherCode = weatherData.hourly.weathercode[0];
     let weatherCodeData = transcodeWeatherCodeToString(weatherCode);
     

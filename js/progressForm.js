@@ -51,9 +51,8 @@ const progressForm = (
 
     if (formState == 'done-search') {
 
-        getTemperatureAndTime(e, savedSelections.country, savedSelections.city, LOCATIONS);
+        getTemperatureAndTime(e, APP, savedSelections.country, savedSelections.city, LOCATIONS);
 
-        APP.BUTTON_GPS.classList.add('--search-GPS-area');
 
         APP.BUTTON_SEARCH_COUNTRY.classList.remove('--search-location-state');
         APP.BUTTON_SEARCH_COUNTRY.innerText = savedSelections.country;
@@ -61,8 +60,6 @@ const progressForm = (
         APP.BUTTON_SEARCH_CITY.removeAttribute('disabled');
         APP.BUTTON_SEARCH_CITY.innerText = savedSelections.city;
 
-        APP.BUTTON_REFRESH.classList.add('--search-refresh-area')
-        APP.BUTTON_REFRESH.removeAttribute('disabled')
         APP.BUTTON_REFRESH.setAttribute('data-for', 'form')
 
         exitFormSearch(APP, savedSelections);

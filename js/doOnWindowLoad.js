@@ -19,7 +19,9 @@ const doOnWindowLoad = async (e, APP) => {
             .then(() => {
                     WEATHER_CARD_INTRO.remove();
                     WEATHER_CARD.classList.remove('hidden-children');
-                    WEATHER_CARD.classList.add('fade-in');              
+                    WEATHER_CARD.classList.add('fade-in');    
+                    APP.BUTTON_GPS.removeAttribute('disabled')          
+                    APP.BUTTON_RANDOM.removeAttribute('disabled')          
     });
 
     const selector = Math.floor(Math.random()*SVG_SPRITE_CHILDS_ARRAY.length);

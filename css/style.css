@@ -448,10 +448,13 @@ body {
         gap: 8px;
         
         height: 76px;
+        transition: opacity 0.5s ease;
     }   
 
         .form-weather__search-GPS::before,
-        .form-weather__search-refresh::before {
+        .form-weather__search-refresh::before,
+        .form-weather__search-random::before,
+        .form-weather__github-link::before {
             content: '';
             position: absolute;
             top: 0;
@@ -472,12 +475,23 @@ body {
             background-image: url('../assets/svg/rotate-ccw.svg');
         }
 
+        .form-weather__search-random::before {
+            background-image: url('../assets/svg/shuffle.svg');
+        }
+
+        .form-weather__github-link::before {
+            background-image: url('../assets/svg/github.svg');
+        }
+
         .form-weather__search-GPS,
-        .form-weather__search-refresh {
+        .form-weather__search-refresh,
+        .form-weather__search-random,
+        .form-weather__github-link {
             position: relative;
             width: 40px;
             height: 100%;
             cursor: pointer;
+            transition: opacity 0.5s ease;
         }
         
 
@@ -485,18 +499,10 @@ body {
             grid-area: A / A / A / A;
         }
 
-        .--search-GPS-area {
-            grid-area: A / A / D / D;
-        }
-
         .form-weather__search-refresh {
             grid-area: C / C / C / C;
         }
 
-        .--search-refresh-area {
-            
-            grid-area: C / C / F / F;
-        }
 
         .form-weather__search-country-button,
         .form-weather__search-city-button {
@@ -558,15 +564,19 @@ body {
 
         .form-weather__search-GPS:hover,
         .form-weather__search-country-button:hover,
+        .form-weather__search-refresh:hover,
+        .form-weather__search-random:hover,
         .form-weather__search-city-button:hover,
-        .form-weather__search-refresh:hover {
+        .form-weather__github-link:hover {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.123), rgba(255, 255, 255, 0));
         }
 
         .form-weather__search-GPS:disabled,
         .form-weather__search-country-button:disabled,
+        .form-weather__search-refresh:disabled,
+        .form-weather__search-random:disabled,
         .form-weather__search-city-button:disabled,
-        .form-weather__search-refresh:disabled {
+        .form-weather__github-link:disabled {
             opacity: 0.4;
             pointer-events: none;
             user-select: none;
@@ -574,7 +584,7 @@ body {
 
         /* firefox fallback for glass blurr */
         @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-            .weather-card {
+            .weather-card-container {
                 background: linear-gradient(135deg, rgba(255, 255, 255, 0.20), rgba(31, 31, 31, 0.726));
             }
 
@@ -643,8 +653,14 @@ body {
 .fade-out-x2 {
     animation: opacity-out 0.5s ease 0s 1 normal both, forwards;
 }
+.fade-out-x3 {
+    animation: opacity-out 0.25s ease 0s 1 normal both, forwards;
+}
 .fade-in-out {
     animation: opacity-in-out 2.5s ease 0s 1 normal both, forwards;
+}
+.fade-out-in {
+    animation: opacity-out-in 1s ease 0s 1 normal both, forwards;
 }
 
 .fade-in-out-0-5s-delay {
@@ -656,6 +672,12 @@ body {
     0% {opacity: 0;}
     50% {opacity: 1;}
     100% {opacity: 0;}
+}
+
+@keyframes opacity-out-in {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
 }
 
 @keyframes opacity-in {

@@ -98,7 +98,7 @@
             </div>
 
             <div class="weather-card__footer">
-              <p class="weather-card__footer-info" id="weather-card-footerinfo-0">crafted by <a href="https://github.com/muchisx">muchisx</a></p>
+              <p class="weather-card__footer-info" id="weather-card-footerinfo-0">crafted by <a href="https://github.com/muchisx" target="_blank" rel="noopener noreferrer">muchisx</a></p>
             </div>
           </article>
         </article>
@@ -106,10 +106,12 @@
 
       <form action="submit" class="form-weather" id="form-weather-location">
 
-        <button class="form-weather__search-GPS glass-effect" id="form-weather-search-GPS" type="submit" data-form="search-GPS"></button>
+        <button class="form-weather__search-GPS glass-effect" disabled id="form-weather-search-GPS" type="submit" data-form="search-GPS"></button>
         <button class="form-weather__search-country-button --search-location-state" id="button-form-search-country" value="" type="submit" data-form="search-location">Location</button>
-        <button class="form-weather__search-city-button hidden-opa" disabled id="button-form-search-city" value="" type="submit" data-form="search-location">City</button>
         <button class="form-weather__search-refresh glass-effect" disabled id="form-weather-search-refresh" type="submit" data-form="search-refresh" data-for=""></button>
+        <button class="form-weather__search-random glass-effect" disabled id="form-weather-search-random" type="submit" data-form="search-random" data-for=""></button>
+        <button class="form-weather__search-city-button hidden-opa" disabled id="button-form-search-city" value="" type="submit" data-form="search-location">City</button>
+        <a class="form-weather__github-link glass-effect" href="https://github.com/muchisx/Just-Weather" target="_blank" rel="noopener noreferrer"></a>
 
       </form> 
 
