@@ -137,9 +137,10 @@ body {
         }
 
         .--result-start-search {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;        
+            padding: 0 2px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
         }
 
         .--result-start-search::before {
@@ -152,7 +153,7 @@ body {
             background-image: url('../assets/svg/chevrons-right.svg');
             background-position: center;
             background-repeat: no-repeat;
-            background-size: 50px;
+            background-size: 64px;
         }
 
         .form-search-result:hover {
@@ -432,16 +433,77 @@ body {
     */
 
     .form-weather {
-        display: flex;
+        /* display: flex;
         flex-direction: column;
-        gap: 10px;
-    }
+        justify-content: center;
+        align-items: center;
+        gap: 10px; */
+
+        display: grid;
+        place-items: center;
+
+        grid-template-areas: 
+        'A B C'
+        'D E F';
+        gap: 8px;
+        
+        height: 76px;
+    }   
+
+        .form-weather__search-GPS::before,
+        .form-weather__search-refresh::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            
+            background-repeat: no-repeat;
+            background-size: 16px;
+            background-position: center;
+        }
+        
+        .form-weather__search-GPS::before {
+            background-image: url('../assets/svg/map-pin.svg');
+        }
+
+        .form-weather__search-refresh::before {
+            background-image: url('../assets/svg/rotate-ccw.svg');
+        }
+
+        .form-weather__search-GPS,
+        .form-weather__search-refresh {
+            position: relative;
+            width: 40px;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+
+        .form-weather__search-GPS {
+            grid-area: A / A / A / A;
+        }
+
+        .--search-GPS-area {
+            grid-area: A / A / D / D;
+        }
+
+        .form-weather__search-refresh {
+            grid-area: C / C / C / C;
+        }
+
+        .--search-refresh-area {
+            
+            grid-area: C / C / F / F;
+        }
 
         .form-weather__search-country-button,
         .form-weather__search-city-button {
             position: relative;
             padding: 8px 32px;
-            width: 180px;
+            width: 160px;
+            height: 34px;
             border: none;
             overflow: hidden;
 
@@ -463,6 +525,16 @@ body {
             border-top: var(--glass-border);
             border-left: var(--glass-border);
             box-shadow: var(--glass-box-shadow);
+            transition: width 0.5s ease;
+            transition: opacity 0.5s ease;
+        }
+
+        .form-weather__search-country-button {
+            grid-area: B / B / B / B;
+        }
+
+        .form-weather__search-city-button {
+            grid-area: E / E / E / E;
         }
 
         .--search-location-state {
@@ -484,18 +556,21 @@ body {
             background-position-x: 16%;
         }
 
+        .form-weather__search-GPS:hover,
         .form-weather__search-country-button:hover,
-        .form-weather__search-city-button:hover {
+        .form-weather__search-city-button:hover,
+        .form-weather__search-refresh:hover {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.123), rgba(255, 255, 255, 0));
         }
 
+        .form-weather__search-GPS:disabled,
         .form-weather__search-country-button:disabled,
-        .form-weather__search-city-button:disabled {
-            opacity: 0.2;
+        .form-weather__search-city-button:disabled,
+        .form-weather__search-refresh:disabled {
+            opacity: 0.4;
             pointer-events: none;
             user-select: none;
         }
-
 
         /* firefox fallback for glass blurr */
         @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
@@ -528,6 +603,11 @@ body {
     visibility: hidden;
 }
 
+.hidden-opa {
+    visibility: hidden;
+    opacity: 0;
+}
+
 .position-absolute {
     position: absolute;
 }
@@ -549,8 +629,12 @@ body {
 .fade-in {
     animation: opacity-in 1s ease 0s 1 normal both, forwards;
 }
+
 .fade-in-x2 {
     animation: opacity-in 0.5s ease 0s 1 normal both, forwards;
+}
+.half-fade-in-x2 {
+    animation: half-opacity-in 0.5s ease 0s 1 normal both, forwards;
 }
 
 .fade-out {
@@ -577,6 +661,10 @@ body {
 @keyframes opacity-in {
     0% {opacity: 0;}
     100% {opacity: 1;}
+}
+@keyframes half-opacity-in {
+    0% {opacity: 0;}
+    100% {opacity: 0.44;}
 }
 @keyframes opacity-out {
     0% {opacity: 1;}

@@ -38,7 +38,7 @@
 
     <script src="./js/appHeight.js"></script>
     <link rel="stylesheet" href="./css/style.css"/>
-    <link rel="stylesheet" href="./css/tablet.css" media="(min-width: 564px) and (max-width: 1080px)"/>
+    <!-- <link rel="stylesheet" href="./css/tablet.css" media="(min-width: 564px) and (max-width: 1080px)"/> -->
 
 
     <title>Just Weather</title>
@@ -106,8 +106,10 @@
 
       <form action="submit" class="form-weather" id="form-weather-location">
 
-        <button class="form-weather__search-country-button --search-location-state" id="button-form-search-country" value="" type="submit">Location</button>
-        <button class="form-weather__search-city-button display-none" disabled id="button-form-search-city" value="" type="submit">City</button>
+        <button class="form-weather__search-GPS glass-effect" id="form-weather-search-GPS" type="submit"></button>
+        <button class="form-weather__search-country-button --search-location-state" id="button-form-search-country" value="" type="submit" data-form="search-location">Location</button>
+        <button class="form-weather__search-city-button hidden-opa" disabled id="button-form-search-city" value="" type="submit" data-form="search-location">City</button>
+        <button class="form-weather__search-refresh glass-effect" disabled id="form-weather-search-refresh" type="submit" data-form="search-refresh"></button>
 
       </form> 
 

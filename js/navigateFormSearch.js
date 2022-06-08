@@ -14,9 +14,15 @@ const navigateFormSearch = (
 
     else if (formState == 'country-search') exitFormSearch(APP, savedSelections);
 
-    else if (formState == 'city-search') resetForm(APP, 'country-search', savedSelections);
+    else if (formState == 'city-search') {
+        resetForm(APP, 'country-search', savedSelections);
+        APP.FORM_SEARCH_INPUT.focus();
+    }
     
-    else if (formState == 'done-search') resetForm(APP, 'city-search', savedSelections);
+    else if (formState == 'done-search') {
+        resetForm(APP, 'city-search', savedSelections)
+        APP.FORM_SEARCH_INPUT.focus();
+    };
     
 }
 

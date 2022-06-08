@@ -23,6 +23,7 @@ const progressForm = (
 
         APP.FORM_SEARCH_NAV_INFO.innerText = savedSelections.country;
         APP.FORM_SEARCH_NAV_INFO.classList.remove('display-none')
+        APP.FORM_SEARCH_NAV_INFO.classList.add('half-fade-in-x2')
 
 
         return savedSelections
@@ -47,6 +48,8 @@ const progressForm = (
 
         APP.FORM_SEARCH_NAV_INFO_CITY.innerText = savedSelections.city;
         APP.FORM_SEARCH_NAV_INFO_CITY.classList.remove('display-none')
+        APP.FORM_SEARCH_NAV_INFO_CITY.classList.add('half-fade-in-x2')
+
 
         return savedSelections
     }
@@ -55,7 +58,22 @@ const progressForm = (
 
         getTemperatureAndTime(e, savedSelections.country, savedSelections.city, LOCATIONS);
 
+        APP.BUTTON_GPS.classList.add('--search-GPS-area');
+
+        APP.BUTTON_SEARCH_COUNTRY.classList.remove('--search-location-state');
+        APP.BUTTON_SEARCH_COUNTRY.innerText = savedSelections.country;
+        APP.BUTTON_SEARCH_CITY.classList.remove('hidden-opa');
+        APP.BUTTON_SEARCH_CITY.removeAttribute('disabled');
+        APP.BUTTON_SEARCH_CITY.innerText = savedSelections.city;
+
+        APP.BUTTON_REFRESH.classList.add('--search-refresh-area')
+        APP.BUTTON_REFRESH.removeAttribute('disabled')
+
+
+
         exitFormSearch(APP, savedSelections);
+
+        
 
 
         return savedSelections

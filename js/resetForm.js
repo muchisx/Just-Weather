@@ -26,6 +26,8 @@ const resetForm = (
     APP.FORM_SEARCH_UL.innerHTML = "";
     APP.FORM_SEARCH_INPUT.value = "";
     APP.FORM_SEARCH_INPUT.classList.remove('hidden');
+    APP.FORM_SEARCH_NAV_INFO.classList.remove('display-none')
+    APP.FORM_SEARCH_NAV_INFO.innerText = savedSelections.country;
     APP.FORM_SEARCH_NAV_INFO_CITY.innerText = "";
     APP.FORM_SEARCH_NAV_INFO_CITY.classList.add('display-none');
 
