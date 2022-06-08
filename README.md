@@ -1,1 +1,24 @@
-# [<span style="text-align: center; background: linear-gradient(135deg, #bae0ff 30%, #ffd000 80%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; border-width: 0 0 1px 0; border-style: solid; border-image: linear-gradient(135deg, #bae0ff8a 30%, #ffd00071 80%) 1;">**Just-Weather**</span>](https://muchisx.github.io/Just-Weather/)
+# [☀️ **Just-Weather** ![open-link](https://muchisx.github.io/Just-Weather/assets/svg/external-link.svg)](https://muchisx.github.io/Just-Weather/)
+
+## 🌤️ **Hi, Welcome!**
+
+Just Weather is a Web App designed for **Fast Real-Time Weather** queries in combination with well **Thought Out Visual Design**.
+
+**No ads**, no news articles you don't need, **no pop-ups** from annoying marketing schemes.
+
+</br>
+
+*Just Weather.*
+
+
+## ⛅ **Try the Web-App!**
+
+Add a shorcut to your device's homescreen from your prefered browser and start browsing the weather on the go!
+
+<img src="https://muchisx.github.io/Just-Weather/assets/img/web-og-thumb.jpg" alt="og-thumb" width="600px"/>
+
+</br>
+
+## ☁️ *Like it? Consider buying me a cookie*
+
+🍪 *https://www.buymeacoffee.com/muchisx*
