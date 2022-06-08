@@ -1,4 +1,4 @@
-# [☀️ **Just-Weather** ![open-link](https://muchisx.github.io/Just-Weather/assets/svg/external-link.svg)](https://muchisx.github.io/Just-Weather/)
+# [☀️ **Just-Weather** ![open-link](https://muchisx.github.io/Just-Weather/assets/svg/external.svg)](https://muchisx.github.io/Just-Weather/)
 
 ## 🌤️ **Hi, Welcome!**
 
