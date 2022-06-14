@@ -20,7 +20,7 @@ const getTemperatureAndTime = async (e, APP, COUNTRY, CITY, LOCATIONS) => {
                         .filter(item => item.country == country && item.city == city)
                         .map(({lat, lng}) => ([lat, lng]))
                         .flat();
-    console.log("Coordinates", coordinates);
+
     let fields = [
         "temperature_2m",
         "weathercode",
@@ -31,17 +31,10 @@ const getTemperatureAndTime = async (e, APP, COUNTRY, CITY, LOCATIONS) => {
 
         let weatherData = fetch(`${WEATER_API_URL}latitude=${coordinates[0]}&longitude=${coordinates[1]}&hourly=${fields}&current_weather=true`)
                         .then(res => res.json())
-                        .then(data => {
-                            console.log("Weather", data);
-                            return data
-        });
 
         let timeData = fetch(`${TIME_API_URL}&lat=${coordinates[0]}&lng=${coordinates[1]}`)
                         .then(res => res.json())
-                        .then(data => {
-                            console.log("Time", data);
-                            return data
-        });
+
                            
         await returnAnimationsPromises(APP.WEATHER_CARD);
         

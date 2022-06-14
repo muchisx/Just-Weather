@@ -34,24 +34,13 @@ const getTemperatureAndTimeByGPS = async (e, APP) => {
         const GEO_DATA = await GEOLOCATION()
 
         let coordinates = [GEO_DATA.coords.latitude, GEO_DATA.coords.longitude]
-
-        console.log(coordinates);
-
             
         let timeData = fetch(`${TIME_API_URL}&lat=${coordinates[0]}&lng=${coordinates[1]}`)
-                                .then(res => res.json())
-                                .then(data => {
-                                    console.log("Time", data);
-                                    return data
-        });
-
+                        .then(res => res.json())
 
         let weatherData = fetch(`${WEATER_API_URL}latitude=${coordinates[0]}&longitude=${coordinates[1]}&hourly=${fields}&current_weather=true`)
-            .then(res => res.json())
-            .then(data => {
-                console.log("Weather", data);
-                return data
-        })
+                        .then(res => res.json())
+
 
         await returnAnimationsPromises(APP.WEATHER_CARD);
 

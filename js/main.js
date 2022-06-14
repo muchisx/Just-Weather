@@ -60,10 +60,6 @@ window.addEventListener("load", (e) => {
 
 
 const COUNTRIES = createCountryList(LOCATIONS)
-const GEO = navigator.geolocation.getCurrentPosition((e) => {
-    console.log(e);
-    return e
-})
 
 let formState = APP.FORM_SEARCH.dataset.state;
 let selection = "";
