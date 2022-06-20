@@ -58,15 +58,15 @@ body {
 =============================================*/
 
 .glass-effect {
+    border-radius: 16px;
+    border-top: var(--glass-border);
+    border-right: none;
+    border-bottom: none;
+    border-left: var(--glass-border);
+    box-shadow: var(--glass-box-shadow);
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border-radius: 16px;
-    border-top: var(--glass-border);
-    border-left: var(--glass-border);
-    border-bottom: none;
-    border-right: none;
-    box-shadow: var(--glass-box-shadow);
 }
 
 /*=============================================
@@ -81,46 +81,44 @@ body {
     gap: 4px;
     
     position: absolute;
-    max-width: 480px;
-    margin: auto;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    max-width: 480px;
     padding: 0 40px;
+    margin: auto;
     z-index: 1;
 }
 
     .form-search__title {
-        opacity: 0.7;
-        user-select: none;
         font-size: 20rem;
         font-weight: bold;
         color: var(--tertiary-color);
-
         text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.52);
+        opacity: 0.7;
+        user-select: none;
     }
 
     .form-search__results {
         display: flex;
         flex-wrap: wrap-reverse;
         align-content: flex-start;
-        
         gap: 8px;
-
-        min-height: 190px;
         
+        min-height: 190px;
     }
 
         .form-search-result {
             all: unset;
 
             flex-grow: 1;
-            text-align: center;
-            height: fit-content;
             
             position: relative;
+            height: fit-content;
             padding: 8px 12px;
+
+            text-align: center;
             font-size: 16rem;
             color: var(--tertiary-color);
             cursor: pointer;
@@ -137,9 +135,9 @@ body {
         }
 
         .--result-start-search {
-            padding: 0 2px;
             width: 100px;
             height: 100px;
+            padding: 0 2px;
             border-radius: 50%;
         }
 
@@ -162,24 +160,26 @@ body {
 
         .form-search__input {
             all: unset;
-            text-align: center;
-
+            
             padding: 20px;
             
+            text-align: center;
             color: var(--tertiary-color);
         }
 
         .form-search__navigation {
             display: flex;
-            width: 100%;
-            gap: 8px;
-            align-items: center;
             justify-content: space-between; 
+            align-items: center;
+            gap: 8px;
+
+            width: 100%;
         }
 
             .form-search__navigation-back,
             .form-search__navigation-close {
                 flex-shrink: 0;
+
                 position: relative;
                 width: 34px;
                 height: 34px;
@@ -212,18 +212,18 @@ body {
             .form-search__navigation-info {
                 height: 34px;
                 padding: 8px 12px;
+                overflow: hidden;
                 
+                text-align: center;
                 font-size: 16rem;
                 line-height: 16px;
                 color: var(--tertiary-color);
-                text-align: center;
 
                 opacity: 0.44;
                 pointer-events: none;
                 user-select: none;
                 white-space: nowrap;
                 text-overflow: ellipsis;
-                overflow: hidden;
             }
 
             .form-search__navigation-close::before {
@@ -242,13 +242,12 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    padding: 12px;
-    overflow: hidden;
-
 
     position: relative;
     min-width: 320px;
     min-height: 100%;
+    padding: 12px;
+    overflow: hidden;
 }
 
 .main-container::before {
@@ -259,18 +258,18 @@ body {
     bottom: 0;
     left: 0;
     z-index: -1;
-    opacity: 0.95;
     background-image: url('../assets/img/bg-1.webp');
     transform: scaleX(-1);
     background-position: 60%;
     background-repeat: no-repeat;
     background-size: cover;
+    opacity: 0.95;
 }
 
 @media (min-width: 1284px) {
     .main-container::before {
         background: rgb(14,10,88);
-background: linear-gradient(45deg, rgba(14,10,88,1) 0%, rgba(38,38,145,1) 35%, rgba(0,212,255,1) 100%);
+        background: linear-gradient(45deg, rgba(14,10,88,1) 0%, rgba(38,38,145,1) 35%, rgba(0,212,255,1) 100%);
     }
 }
 
@@ -286,9 +285,8 @@ background: linear-gradient(45deg, rgba(14,10,88,1) 0%, rgba(38,38,145,1) 35%, r
 
         .weather-card-container {
             position: relative;
-            overflow: hidden;
-            border-radius: 16px;
             margin-bottom: 12px;
+            overflow: hidden;
 
             /* Glass Effect */
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
@@ -337,10 +335,10 @@ background: linear-gradient(45deg, rgba(14,10,88,1) 0%, rgba(38,38,145,1) 35%, r
                 align-items: center;
 
                 padding: 16px;
-                min-width: 256px;
-                min-height: 320px;
                 width: 80vw;
                 height: calc(80vw / 4 * 5);
+                min-width: 256px;
+                min-height: 320px;
                 max-width: 400px;
                 max-height: 500px;
                 overflow: hidden;
@@ -358,9 +356,9 @@ background: linear-gradient(45deg, rgba(14,10,88,1) 0%, rgba(38,38,145,1) 35%, r
                     }
 
                     .weather-card__header-h2 {
+                        text-align: center;
                         font-size: clamp(16rem, 5vw, 24rem);
                         font-weight: 200;
-                        text-align: center;
                         color: var(--primary-color);
                     }
 
@@ -374,55 +372,59 @@ background: linear-gradient(45deg, rgba(14,10,88,1) 0%, rgba(38,38,145,1) 35%, r
                     .weather-card__body-degrees {
                         position: relative;
                         width: fit-content;
-                        text-align: center;
-                        font-weight: 300;
-                        font-size: clamp(80rem, 24vw, 120rem);
-                        color: var(--primary-color);
                         margin-bottom: 8px;
+
+                        text-align: center;
+                        font-size: clamp(80rem, 24vw, 120rem);
+                        font-weight: 300;
+                        color: var(--primary-color);
                     }
 
                         .weather-card__body-degrees sup {
                             position: absolute;
                             top: 0.2em;
                             right: -0.4em;
-                            font-weight: 100;
+
                             font-size: 0.4em;
+                            font-weight: 100;
                         }
 
 
                     .weather-card__body-h2 {
                         height: fit-content;
-                        text-align: center;
                         margin-bottom: 4px;  
+
+                        text-align: center;
                         font-size: clamp(16rem, 5vw, 24rem);
                         font-weight: 400;
                         color: var(--primary-color);
                     }
 
                     .weather-card__body-h3 {
-                        font-size: clamp(12rem, 3vw, 14rem);
                         text-align: center;
+                        font-size: clamp(12rem, 3vw, 14rem);
                         font-weight: 200;
                         color: var(--tertiary-color);
                     }
 
 
                 .weather-card__footer {
-                    margin-top: auto;
                     display: grid;
                     justify-content: center;
+                    margin-top: auto;
                 }
 
                     .weather-card__footer-info {
-                        font-weight: 200;
                         font-size: clamp(12rem, 3vw, 14rem);
+                        font-weight: 200;
                         color: var(--tertiary-color);
                     }
 
                         .weather-card__footer a {
                             position: relative;
-                            text-decoration: none;
+
                             font-weight: 400;
+                            text-decoration: none;
 
                             /* Gradient Effect */
                             background: linear-gradient(135deg, #bae0ff 30%, #ffd000 80%);
@@ -441,15 +443,8 @@ background: linear-gradient(45deg, rgba(14,10,88,1) 0%, rgba(38,38,145,1) 35%, r
     */
 
     .form-weather {
-        /* display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 10px; */
-
         display: grid;
         place-items: center;
-
         grid-template-areas: 
         'A B C'
         'D E F';
@@ -470,9 +465,9 @@ background: linear-gradient(45deg, rgba(14,10,88,1) 0%, rgba(38,38,145,1) 35%, r
             bottom: 0;
             left: 0;
             
-            background-repeat: no-repeat;
-            background-size: 16px;
             background-position: center;
+            background-size: 16px;
+            background-repeat: no-repeat;
         }
         
         .form-weather__search-GPS::before {
@@ -499,6 +494,7 @@ background: linear-gradient(45deg, rgba(14,10,88,1) 0%, rgba(38,38,145,1) 35%, r
             width: 40px;
             height: 100%;
             cursor: pointer;
+
             transition: opacity 0.5s ease;
         }
         
@@ -515,17 +511,17 @@ background: linear-gradient(45deg, rgba(14,10,88,1) 0%, rgba(38,38,145,1) 35%, r
         .form-weather__search-country-button,
         .form-weather__search-city-button {
             position: relative;
-            padding: 8px 32px;
             width: 160px;
             height: 34px;
+            padding: 8px 32px;
             border: none;
             overflow: hidden;
 
-            color: var(--tertiary-color);
-            font-size: 14rem;
-            font-family: "Inter";
-            text-overflow: ellipsis;
             text-align: center;
+            font-family: "Inter";
+            font-size: 14rem;
+            color: var(--tertiary-color);
+            text-overflow: ellipsis;
             white-space: nowrap;
 
             cursor: pointer;
@@ -607,7 +603,6 @@ background: linear-gradient(45deg, rgba(14,10,88,1) 0%, rgba(38,38,145,1) 35%, r
 -->                 EXTRA                  <--
 =============================================*/
 
-
 /*
 -->      Override - Utility Classes       <--
 =============================================
@@ -638,11 +633,11 @@ background: linear-gradient(45deg, rgba(14,10,88,1) 0%, rgba(38,38,145,1) 35%, r
     pointer-events: none;
 }
 
+
 /*
 -->            Animation Classes          <--
 =============================================
 */
-
 
 .fade-in {
     animation: opacity-in 1s ease 0s 1 normal both, forwards;
