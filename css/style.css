@@ -81,10 +81,7 @@ body {
     gap: 4px;
     
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     max-width: 480px;
     padding: 0 40px;
     margin: auto;
@@ -144,10 +141,8 @@ body {
         .--result-start-search::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            inset: 0;
+
             background-image: url('../assets/svg/chevrons-right.svg');
             background-position: center;
             background-repeat: no-repeat;
@@ -192,10 +187,8 @@ body {
             .form-search__navigation-close::before {
                 content: '';
                 position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
+                inset: 0;
+
                 background-repeat: no-repeat;
                 background-position-y: 58%;
                 background-position-x: 48%;
@@ -253,10 +246,8 @@ body {
 .main-container::before {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
+
     z-index: -1;
     background-image: url('../assets/img/bg-1.webp');
     transform: scaleX(-1);
@@ -306,11 +297,9 @@ body {
                 gap: 12px;
 
                 position: absolute;
+                inset: 0;
                 z-index: 1;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
+
                 pointer-events: none;
                 user-select: none;
             }
@@ -460,10 +449,7 @@ body {
         .form-weather__github-link::before {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+            inset: 0;
             
             background-position: center;
             background-size: 16px;
@@ -555,10 +541,8 @@ body {
         .--search-location-state::after {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+            inset: 0;
+            
             background-image: url('../assets/svg/search.svg');
             background-repeat: no-repeat;
             background-size: 16px;
