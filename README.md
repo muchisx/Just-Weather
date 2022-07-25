@@ -17,8 +17,3 @@ Add a shorcut to your device's homescreen from your prefered browser and start b
 
 <img src="https://muchisx.github.io/Just-Weather/assets/img/web-og-thumb.jpg" alt="og-thumb" width="600px"/>
 
-</br>
-
-## ☁️ *Like it? Consider buying me a cookie*
-
-🍪 *https://www.buymeacoffee.com/muchisx*
