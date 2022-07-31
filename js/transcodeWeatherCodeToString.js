@@ -68,6 +68,4 @@ const transcodeWeatherCodeToString = (weatherCode) => {
 }
 
 
-
-
 export default transcodeWeatherCodeToString;

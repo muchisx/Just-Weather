@@ -34,7 +34,7 @@ const progressForm = (
         APP.FORM_SEARCH_UL.innerHTML = "";
         APP.FORM_SEARCH_INPUT.classList.toggle('hidden')
 
-        let buttonTag = document.createElement('button');
+        const buttonTag = document.createElement('button');
         buttonTag.classList.add('form-search-result', 'fade-in', '--result-start-search');
 
         APP.FORM_SEARCH_UL.append(buttonTag)

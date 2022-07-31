@@ -14,14 +14,14 @@ const getTemperatureAndTime = async (e, APP, COUNTRY, CITY, LOCATIONS) => {
     APP.BUTTON_REFRESH.setAttribute('disabled', 'disabled')
     APP.BUTTON_RANDOM.setAttribute('disabled', 'disabled')
 
-    let country = COUNTRY;
-    let city = CITY;
-    let coordinates = LOCATIONS
+    const country = COUNTRY;
+    const city = CITY;
+    const coordinates = LOCATIONS
                         .filter(item => item.country == country && item.city == city)
                         .map(({lat, lng}) => ([lat, lng]))
                         .flat();
 
-    let fields = [
+    const fields = [
         "temperature_2m",
         "weathercode",
         "apparent_temperature",
@@ -29,16 +29,16 @@ const getTemperatureAndTime = async (e, APP, COUNTRY, CITY, LOCATIONS) => {
 
     try {
 
-        let weatherData = fetch(`${WEATER_API_URL}latitude=${coordinates[0]}&longitude=${coordinates[1]}&hourly=${fields}&current_weather=true`)
+        const weatherData = fetch(`${WEATER_API_URL}latitude=${coordinates[0]}&longitude=${coordinates[1]}&hourly=${fields}&current_weather=true`)
                         .then(res => res.json())
 
-        let timeData = fetch(`${TIME_API_URL}&lat=${coordinates[0]}&lng=${coordinates[1]}`)
+        const timeData = fetch(`${TIME_API_URL}&lat=${coordinates[0]}&lng=${coordinates[1]}`)
                         .then(res => res.json())
 
                            
         await returnAnimationsPromises(APP.WEATHER_CARD);
         
-        let allData = await Promise.all([weatherData, timeData]);
+        const allData = await Promise.all([weatherData, timeData]);
         updateCard(allData[0], allData[1], country, city);
 
         APP.WEATHER_CARD.classList.remove('fade-out-x3');

@@ -12,8 +12,8 @@ const updateCard = async (weatherData, timeData, country, city) => {
     const WEATHER_CARD_COUNTRY = WEATHER_CARD.querySelector('#weather-card-country-0')
     const WEATHER_CARD_FOOTER_INFO = WEATHER_CARD.querySelector('#weather-card-footerinfo-0')
 
-    let weatherCode = weatherData.hourly.weathercode[0];
-    let weatherCodeData = transcodeWeatherCodeToString(weatherCode);
+    const weatherCode = weatherData.hourly.weathercode[0];
+    const weatherCodeData = transcodeWeatherCodeToString(weatherCode);
     
     WEATHER_CARD_VISUAL.setAttribute('xlink:href', weatherCodeData[1]);
     WEATHER_CARD_HEADER_H2.textContent = weatherCodeData[0];
@@ -23,10 +23,10 @@ const updateCard = async (weatherData, timeData, country, city) => {
     WEATHER_CARD_COUNTRY.textContent = country;
     WEATHER_CARD_CITY.textContent = city;
     
-    let formattedDate = timeData.formatted
+    const formattedDate = timeData.formatted
                             .replace(' ', 'T')
     ;
-    let date = new Date(formattedDate)
+    const date = new Date(formattedDate)
                 .toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
     ;
 
